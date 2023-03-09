@@ -1,0 +1,56 @@
+html {
+    height: 100vh;
+}
+body {
+    background-image: url("static/wood-planks_rotated.jpg");
+    background-size: 50%;
+    background-repeat: repeat repeat;
+}
+.container, .iPhone, .case, .screen, .clock, .date, .underscreen-button {
+    position: relative;
+    margin: auto;
+}
+.container {
+    /* display: flex; */
+    height: 730px;
+    width: 700px;
+}
+.iPhone {
+    height: 720px;
+    width: 500;
+}
+.case {
+    top: 20px;
+    height: 700px;
+    width: 340px;
+    background-color: hsl(223, 24%, 89%);
+    border: 5px solid #151f37;
+    border-radius: 50px;
+}
+.screen{
+    top: 77px;
+    height: 526px;
+    width: 296px;
+    background-color: hsl(223, 24%, 14%);
+}
+.clock, .date {
+    text-align: center;
+    font-family: Trebuchet MS, sans-serif;
+    color: hsl(223, 24%, 89%);
+}
+.clock {
+    top: 35px;
+    font-size: 75px;
+}
+.date {
+    top: 30px;
+    font-size: 25px;
+}
+.underscreen-button {
+    top: 85px;
+    height: 66px;
+    width: 66px;
+    background-color: hsl(223, 24%, 89%);
+    border: 5px solid #192133;
+    border-radius: 40px;
+}
