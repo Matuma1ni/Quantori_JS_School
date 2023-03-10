@@ -26,7 +26,8 @@ body {
     background-color: hsl(223, 24%, 89%);
     border: 5px solid #151f37;
     border-radius: 50px;
-    box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, 0.2);
+    /* box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, 0.2);*/
+    box-shadow: 1px 1px 4px 4px rgba(255, 255, 255, 0.15);
 }
 #screen{
     background-image: url("static/wp-simple.jpg");
@@ -37,7 +38,32 @@ body {
     background-color: hsl(223, 24%, 14%);
     border: 2px solid #192133;
 }
-#clock, #date {
+.screen-area{
+    width: 100%;
+    height: 25px;
+    position: absolute;
+}
+#screen-heading {
+    top: 0px;
+}
+#screen-footage {
+    bottom: 0px;
+}
+#mobile-network {
+    position: absolute;
+    left: 3px;
+    text-align: center;
+    font-family: Trebuchet MS, sans-serif;
+    color: hsl(223, 24%, 89%);
+}
+#battery {
+    position: absolute;
+    right: 3px;
+    top: 2px;
+    width: 17px;
+    height: 17px;
+}
+#clock, #date{
     text-align: center;
     font-family: Trebuchet MS, sans-serif;
     color: hsl(223, 24%, 89%);
@@ -49,6 +75,30 @@ body {
 #date {
     margin-top: 30px;
     font-size: 25px;
+}
+#slider {
+    position: absolute;
+    font-family: Trebuchet MS, sans-serif;
+    font-size: 25px;
+    left: 60px;
+    top: 450px;
+}
+.oval-button {
+    position: absolute;
+    top: 45%;
+    left: 46%;
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 20px;
+    height: 4px;
+    border: 1px solid #192133;
+    border-radius: 3px;
+}
+#camera-png {
+    position: absolute;
+    opacity: 0.5;
+    right: 3px;
+    width: 25px;
+    height: 100%;
 }
 #underscreen-button {
     margin-top: 10px;
