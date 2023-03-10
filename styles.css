@@ -6,51 +6,108 @@ body {
     background-size: 50%;
     background-repeat: repeat repeat;
 }
-.container, .iPhone, .case, .screen, .clock, .date, .underscreen-button {
+* {
     position: relative;
     margin: auto;
 }
 .container {
-    /* display: flex; */
-    height: 730px;
-    width: 700px;
+    display: flex;
+    height: 100%;
+    width: 100%;
 }
-.iPhone {
+#iPhone {
     height: 720px;
-    width: 500;
+    width: 400px;
 }
-.case {
+#case {
     top: 20px;
     height: 700px;
     width: 340px;
     background-color: hsl(223, 24%, 89%);
     border: 5px solid #151f37;
     border-radius: 50px;
+    box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, 0.2);
 }
-.screen{
-    top: 77px;
+#screen{
+    background-image: url("static/wp-simple.jpg");
+    background-size: 100% 100%;
+    margin-top: 77px;
     height: 526px;
     width: 296px;
     background-color: hsl(223, 24%, 14%);
+    border: 2px solid #192133;
 }
-.clock, .date {
+#clock, #date {
     text-align: center;
     font-family: Trebuchet MS, sans-serif;
     color: hsl(223, 24%, 89%);
 }
-.clock {
+#clock {
     top: 35px;
     font-size: 75px;
 }
-.date {
-    top: 30px;
+#date {
+    margin-top: 30px;
     font-size: 25px;
 }
-.underscreen-button {
-    top: 85px;
+#underscreen-button {
+    margin-top: 10px;
     height: 66px;
     width: 66px;
     background-color: hsl(223, 24%, 89%);
     border: 5px solid #192133;
     border-radius: 40px;
+}
+#speaker, #round-element, #front-camera {
+    position: absolute;
+    background-color: #192133;
+    border: 1px solid #192133;
+    border-radius: 3px;
+}
+#speaker {
+    top: 40px;
+    left: calc(50% - 20px);
+    height: 3px;
+    width: 39px;
+
+}
+#round-element{
+    top: 18px;
+    left: calc(50% - 3.5px);
+    height: 5px;
+    width: 5px;
+}
+#front-camera {
+    top:37px;
+    height: 8px;
+    width: 8px;
+    left: 125px;
+    border-radius: 6px;
+}
+.side-button {
+    background-color: #151f37;
+    width: 7px;
+    position: absolute;
+    border: 1px solid #151f37;
+    border-radius: 3px;
+}
+#power, #volume-up, #volume-down {
+    height: 50px;
+}
+#power {
+    top: 160px;
+    left: 371px;
+}
+#volume-up {
+    top: 160px;
+    left: 21px;
+}
+#volume-down {
+    top: 220px;
+    left: 21px;
+}
+#silence {
+    height: 24px;
+    top: 110px;
+    left: 21px;
 }
