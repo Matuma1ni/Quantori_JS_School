@@ -79,9 +79,23 @@ body {
 #slider {
     position: absolute;
     font-family: Trebuchet MS, sans-serif;
-    font-size: 25px;
+    background: linear-gradient(270deg, #000000, #111b27, #1f3247, #273e59, #355479, #406691, #355479, #273e59, #1f3247, #111b27, #000000);
+    background-size: 400%;
+    font-size: 27px;
+    font-weight: 500;
     left: 60px;
     top: 450px;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    animation: animate 10s linear infinite;
+}
+@keyframes animate{
+    0% {
+        background-position: 400%;
+    }
+    100% {
+        background-position: 0%;
+    }
 }
 .oval-button {
     position: absolute;
