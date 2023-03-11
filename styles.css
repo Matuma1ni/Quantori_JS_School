@@ -81,7 +81,7 @@ body {
     width: 17px;
     height: 17px;
 }
-#clock, #date{
+#datetime-widget{
     text-align: center;
     font-family: Trebuchet MS, sans-serif;
     color: hsl(223, 24%, 89%);
@@ -92,7 +92,7 @@ body {
 }
 #date {
     margin-top: 30px;
-    font-size: 25px;
+    font-size: 23px;
 }
 #slider {
     position: absolute;
