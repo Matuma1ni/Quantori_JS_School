@@ -12,6 +12,7 @@
         <div id="iPhone">
             <div id="case">
                 <div id="screen">
+                    <div id="locked-screen" onclick="turnOn()"></div>
                     <div class="screen-area" id="screen-heading">
                         <div id="mobile-network">●●●●●</div>
                         <div class="oval-button" id="heading-button"></div>
@@ -39,5 +40,10 @@
         </div>
     </div>
     <script src="clock.js"></script>
+    <script>
+        function turnOn() {
+            document.getElementById("locked-screen").style.display = "none";
+        }
+    </script>
 </body>
 </html>

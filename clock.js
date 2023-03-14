@@ -9,9 +9,15 @@ const changeTime = () => {
     const month = now.getMonth(); // # of month
     const dayNum = now.getDate();
     const day = now.getDay() - 1; // # of week day, starts from 1
-    const hour = now.getHours();
-    const minute = now.getMinutes(); 
-    const htmlTime = `${hour}:${minute}`; 
+    let hour = now.getHours();
+    if (hour < 10) {
+        hour = `0${hour}`;
+    }
+    let minute = now.getMinutes();
+    if (minute < 10) {
+        minute = `0${minute}`;
+    }
+    const htmlTime = `${hour}:${minute}`;
     const htmlDay = `${days[day]}, ${dayNum} ${months[month]}`;
     clock.innerHTML = htmlTime;
     date.innerHTML = htmlDay;
