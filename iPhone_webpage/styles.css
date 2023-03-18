@@ -56,7 +56,8 @@ body {
 }
 #screen{
     background-image: url("static/wp-simple.jpg");
-    background-size: 100% 100%;
+    background-size: cover;
+    background-position-y: bottom;
     margin-top: 77px;
     height: 526px;
     width: 296px;
