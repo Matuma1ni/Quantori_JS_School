@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>iPhone screen webpage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="styles.css" rel="stylesheet"/>
+    <link rel="icon" href="static/favicon.ico">
+</head>
+<body>
+    <div class="container">
+        <div id="iPhone">
+            <div id="case">
+                <div id="screen">
+                    <div id="locked-screen" onclick="turnOn()"></div>
+                    <div class="screen-area" id="screen-heading">
+                        <div id="mobile-network">●●●●●</div>
+                        <div class="oval-button" id="heading-button"></div>
+                        <img src="static/icons8-full-battery-30.png" id="battery"> <!--Full Battery icon by Icons8-->
+                    </div>
+                    <div id="datetime-widget">
+                        <div id="clock">12:00</div>
+                        <div id="date">Wednesday, 11 September</div>
+                    </div>
+                    <div id="slider"> ❭ slide to unlock</div>
+                    <div class="screen-area" id="screen-footage">
+                        <div class="oval-button" id="bottom-button"></div>
+                        <img src="static/icons8-compact-camera.png" id="camera-png"> <!--Compact Camera icon by Icons8-->
+                    </div>
+                </div>
+                <div id="front-camera"></div>
+                <div id="speaker"></div>
+                <div id="round-element"></div>
+                <div id="underscreen-button"></div>
+            </div>
+            <div class="side-button" id="power"></div>
+            <div class="side-button" id="volume-up"></div>
+            <div class="side-button" id="volume-down"></div>
+            <div class="side-button" id="silence"></div>
+        </div>
+    </div>
+    <script src="clock.js"></script>
+    <script>
+        function turnOn() {
+            document.getElementById("locked-screen").style.display = "none";
+        }
+    </script>
+</body>
+</html>
