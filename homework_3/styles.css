@@ -1,0 +1,256 @@
+body {
+    font-family: 'Inter';
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+    gap: 24px;
+}
+h1 {
+    font-weight: 600;
+    font-size: 26px;
+}
+h3 {
+    font-weight: 400;
+    font-size: 14px;
+}
+
+header {
+    align-self: stretch;
+    height: 40px;
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+}
+#clonify_logo {
+    display: inline-block;
+    width: 100px;
+    height: 30px;
+    top: calc(50% - 30px/2);
+}
+#profile_icon {
+    position: relative;
+    display: inline-block;
+    float: right;
+}
+input {
+    background: #FFFFFF;
+    border: 1px solid #EAECF0;
+    border-radius: 6px;
+    padding: 0px 16px;
+    align-self: stretch;
+}
+#premium-banner {
+    align-self: stretch;
+    padding: 32px;
+    gap: 24px;
+    background: #282828;
+    border-radius: 16px;
+    font-style: normal;
+    color: #FFFFFF;
+    text-align: center;
+}
+#upgrade-button {
+    align-items: center;
+    padding: 8px 20px;
+    gap: 2px;
+    border-radius: 39px;
+}
+#metrics {
+    align-self: stretch;
+}
+.metrics-h3{
+    color: #5F6980;
+}
+.metrics-h1{
+    color: #5F6980;
+    #282828;
+    margin-bottom: 1em;
+}
+
+#users, #revenue, #new-signups, #retention {
+    padding: 12px 16px;
+    gap: 8px;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.06);
+    border-radius: 12px;
+    align-self: stretch;
+    flex-grow: 0;
+}
+.badge {
+    font-weight: 600;
+    font-size: 12px;
+    padding: 2px 10px;
+    gap: 10px;
+    border-radius: 100px;
+    display: inline-block;
+}
+.green {
+    background: #DCFFF5;
+    color: #20C997;
+}
+.red {
+    background: #FFE0E3;
+    color: #DC3545;
+}
+.grey{
+    background: #F2F4F7;
+    color: #5F6980;
+}
+.orange {
+    background: #FFEAD8;
+    color: #FD7E14;
+}
+.footer-span {
+}
+.footer-paragraph {
+    display: inline;
+    font-weight: 600;
+    font-size: 12px;
+    color: #9D9FA2;
+}
+#performance {
+    font-weight: 600;
+    font-size: 16px;
+}
+#installed-apps {
+    font-weight: 600;
+    font-size: 18px;
+}
+#performance {
+    align-self: stretch;
+    padding: 0px 0px 24px;
+    gap: 24px;
+}
+.header {
+    background: #FFFFFF;
+    border-bottom: 1px solid #EAECF0;
+}
+#performance-header, #apps-header {
+    display:inline-block;
+    color: #282828;
+}
+.three-dots {
+    display: inline-block;
+    float: right;
+    color: #9D9FA2;
+}
+#graph {
+    display: flex;
+    flex-direction: column;
+    padding: 24px 0px 0px 0px;
+}
+#first-row {
+    display: flex;
+    flex-direction: row;
+}
+#x-axis {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.x-label, .y-label {
+    font-weight: 400;
+    font-size: 12px;
+    color: #9D9FA2;
+}
+.curves{
+    padding-left: 8px;
+    align-self: stretch;
+    flex-grow:1;
+}
+svg {
+    viewbox: auto;
+}
+#y-axis {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.y-label {
+}
+#performance-footer{
+    text-align: center;
+    display:flex;
+    justify-content: center;
+}
+.resource {
+    font-weight: 400;
+    font-size: 14px;
+    padding: 0px 8px;
+    gap: 8px;
+    color: #5F6980;
+}
+#instagram-dot {
+    color: #5A9CFE;
+}
+#facebook-dot {
+    color: #20C997;
+}
+#installed-apps{
+    align-self: stretch;
+}
+#apps {
+    align-self: stretch;
+    background: #FFFFFF;
+    border-radius: 12px;
+    border-spacing: 0px;
+}
+th {
+    min-width: 100px;
+}
+td {
+    padding: 0px 24px;
+    border-bottom: 1px solid #EAECF0;
+    height: 76px;
+    text-align: left;
+}
+tr {
+    text-align: left;
+    font-weight: 400;
+    font-size: 14px;
+    color:#5F6980;
+}
+#header-source {
+    min-width: 150px;
+}
+.table-source {
+    padding: 0px 0px 0px 24px;
+}
+.table-header {
+    text-align: left;
+    color: #5F6980;
+    font-weight: 400;
+    font-size: 14px;
+    padding: 16px 24px;
+    background: #F9FAFB;
+}
+.source-name {
+    padding: 0px 0px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #282828;
+}
+.source-container {
+}
+.source-icon {
+    height: 25px;
+    width: 25px;
+    padding:10px;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.06);
+    border-radius: 9.42857px;
+}
+.source-name{
+    min-width: 100px;
+}
+.table-amount {
+    font-weight: 400;
+    font-size: 14px;
+    color:#5F6980;
+}
+#footer-counter {
+    align-self: center;
+    font-weight: 400;
+    font-size: 14px;
+    color: #282828;
+}
