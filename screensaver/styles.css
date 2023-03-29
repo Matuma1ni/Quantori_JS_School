@@ -11,6 +11,7 @@ html {
 body {
     height: 100%;
     background-color: #141B2C;
+    margin: 0px;
 }
 .DVD-icon {
     height: var(--height);
