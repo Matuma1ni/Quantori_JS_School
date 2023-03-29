@@ -1,0 +1,105 @@
+:root {
+  --x-speed: 15s;
+  --y-speed: 7s;
+  --height: 130px;
+  --width: 256px;
+  --transition-speed: 2.2s;
+}
+html {
+    height: 100vh;
+}
+body {
+    height: 100%;
+    background-color: #141B2C;
+}
+.DVD-icon {
+    height: var(--height);
+    width: var(--width);
+    background-color: hsl(171, 100%, 52%);
+    background-image:url("static/DVD_logo.png");
+    background-size: cover;
+    animation: change-color 105s steps(1) infinite;
+}
+
+.x {
+    display: inline-block;
+    animation: x var(--x-speed) linear infinite alternate;
+}
+.y {
+    animation: y var(--y-speed) linear infinite alternate;
+}
+@keyframes x {
+  100% {
+    transform: translateX(calc(100vw - var(--width)));
+  }
+}
+@keyframes y {
+  100% {
+    transform: translateY(calc(100vh - var(--height)));
+  }
+}
+@keyframes change-color {
+  6.7% {
+    background-color: hsl(0, 100%, 52%);
+  }
+  13.3% {
+    background-color: hsl(189, 100%, 52%);
+  }
+  14.3% {
+    background-color: hsl(17, 100%, 52%);
+  }
+  20% {
+    background-color: hsl(206, 100%, 52%);
+  }
+  26.7% {
+    background-color: hsl(34, 100%, 52%);
+  }
+  28.6% {
+    background-color: hsl(223, 100%, 52%);
+  }
+  33.3% {
+    background-color: hsl(51, 100%, 52%);
+  }
+  40% {
+    background-color: hsl(240, 100%, 52%);
+  }
+  42.9% {
+    background-color: hsl(69, 100%, 52%);
+  }
+  46.7% {
+    background-color: hsl(257, 100%, 52%);
+  }
+  53.3% {
+    background-color: hsl(86, 100%, 52%);
+  }
+  57.1% {
+    background-color: hsl(274, 100%, 52%);
+  }
+  60% {
+    background-color: hsl(103, 100%, 52%);
+  }
+  66.7% {
+    background-color: hsl(291, 100%, 52%);
+  }
+  71.4% {
+    background-color: hsl(120, 100%, 52%);
+  }
+  73.3% {
+    background-color: hsl(309, 100%, 52%);
+  }
+  80% {
+    background-color: hsl(137, 100%, 52%);
+  }
+  85.7% {
+    background-color: hsl(326, 100%, 52%);
+  }
+  86.7% {
+    background-color: hsl(154, 100%, 52%);
+  }
+  93.3% {
+    background-color: hsl(343, 100%, 52%);
+  }
+  100% {
+    background-color: hsl(171, 100%, 52%);
+  }
+}
