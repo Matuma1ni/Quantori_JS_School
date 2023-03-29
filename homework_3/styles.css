@@ -1,8 +1,9 @@
-@media (max-width: 480px) {
-}
 @media (max-width: 768px) {
-    #dashboard {
+    .dashboard {
         display: none;
+    }
+    .dashboard__logo {
+        display: none !important;
     }
     .desktop {
         display: none !important;
@@ -11,6 +12,9 @@
 @media (min-width: 789px) {
     body {
         background: #F2F4F7;;
+    }
+    .main-screen__logo {
+        display: none !important;
     }
     .mobile {
         display: none !important;
@@ -23,7 +27,7 @@ body {
     flex-direction:row;
     width: 100vw;
 }
-#main-screen {
+.main-screen {
     font-family: 'Inter';
     display: flex;
     flex-direction: column;
@@ -32,56 +36,52 @@ body {
     gap: 24px;
     flex-grow: 1;
 }
-#dashboard {
+.dashboard {
     min-width: 220px;
     height: 1024px;
     background: #FFFFFF;
     font-family: 'Inter';
     border-right: 1px solid #EAECF0;
 }
-.bold {
+.dashboard__outer-point_bold, .dashboard__point_bold {
     color: #282828;
     font-weight: 600;
     font-size: 14px;
     line-height: 22px;
 }
-.normal-font {
+.dashboard__point_normal-font, .dashboard__outer-point_normal-font {
     color: #5F6980;
     font-weight: 600;
     font-size: 14px;
     line-height: 22px;
 }
-.menu-outer-point {
+.dashboard__outer-point_bold, .dashboard__outer-point_normal-font {
     padding: 8px 0px;
 }
-.menu-point {
+.dashboard__point_normal-font, .dashboard__point_bold {
     padding: 4px 0px;
 }
-.chevron {
+.dashboard__chevron {
     float: right;
 }
-.menu-header {
+.dashboard__header {
     padding-left: 16px;
 }
-#first-part, #second-part, #menu-footer {
+.dashboard__first-part, .dashboard__second-part, .dashboard__footer {
     padding: 0px 12px;
 }
-.desktop.logo {
-    margin-left: 20px;
-    margin-top: 25px;
-}
-#menu {
+.dashboard__menu {
     padding-top:32px;
     padding-left: 16px;
 }
-#open-segment {
+.dashboard__open-segment {
     align-items: center;
     padding: 12px 0px;
 }
-#opened-menu {
+.dashboard__opened-menu {
     padding-left: 20px;
 }
-#menu-footer {
+.dashboard__footer {
     display:flex;
     flex-direction: row;
     justify-content: space-between;
@@ -121,12 +121,16 @@ header {
     align-self: stretch;
     background: #FFFFFF;
 }
-.logo {
+.main-screen__logo, .dashboard__logo {
     width: 100px;
     height: 30px;
     top: calc(50% - 30px/2);
 }
-#mobile-logo {
+.dashboard__logo {
+    margin-left: 20px;
+    margin-top: 25px;
+}
+.main-screen__logo {
     display: inline-block;
 }
 .icon {
@@ -189,6 +193,16 @@ header {
     }
     #metrics {
         justify-content: space-between;
+    }
+}
+@media (min-width: 1025px) {
+    .metric-block {
+        min-width: 160px;
+    }
+}
+@media (min-width: 1225px) {
+    .metric-block {
+        min-width: 200px;
     }
 }
 #metrics {
