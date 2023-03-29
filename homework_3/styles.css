@@ -9,7 +9,7 @@
         display: none !important;
     }
 }
-@media (min-width: 789px) {
+@media (min-width: 769px) {
     body {
         background: #F2F4F7;;
     }
@@ -104,7 +104,7 @@ h3 {
     font-weight: 400;
     font-size: 14px;
 }
-@media (min-width: 789px) {
+@media (min-width: 769px) {
     header {
         height: 66px;
         display: flex;
@@ -112,7 +112,7 @@ h3 {
         justify-content: space-between;
     }
 }
-@media (max-width: 789px) {
+@media (max-width: 769px) {
     header {
         height: 40px;
     }
@@ -133,39 +133,55 @@ header {
 .main-screen__logo {
     display: inline-block;
 }
-.icon {
+@media (max-width: 768px) {
+    .main-screen__desktop-icon {
+        display: none;
+    }
+}
+.main-screen__desktop-icon {
     margin: 10px;
 }
-#profile_icon {
+.main-screen__profile_icon {
     position: relative;
     display: inline-block;
     float: right;
 }
-.search-bar {
+@media (min-width: 769px) {
+    .main-screen__search-bar_mobile {
+        display: none !important;
+    }
+    .main-screen__search-bar_desktop{
+        flex-grow: 1;
+        align-self: center !important;
+        height: 27px;
+        margin: 0px 10px;
+    }
+
+}
+@media (max-width: 768px) {
+    .main-screen__search-bar_desktop{
+        display: none !important;
+    }
+}
+.main-screen__search-bar_mobile, .main-screen__search-bar_desktop {
     display: inline;
     align-self: stretch;
     padding: 0px 16px;
     border: 1px solid #EAECF0;
     border-radius: 6px;
 }
-#desktop-search {
-    flex-grow: 1;
-    align-self: center;
-    height: 27px;
-    margin: 0px 10px;
-}
-@media (max-width: 789px) {
-    #premium-banner {
+@media (max-width: 769px) {
+    .main_screen__premium-banner {
         flex-direction: column;
     }
 }
-@media (min-width: 789px) {
-    #premium-banner {
+@media (min-width: 769px) {
+    .main_screen__premium-banner {
         flex-direction: row;
         justify-content: space-around;
     }
 }
-#premium-banner {
+.main_screen__premium-banner {
     display: flex;
     align-self: stretch;
     padding: 32px;
@@ -176,53 +192,42 @@ header {
     color: #FFFFFF;
     text-align: center;
 }
-#upgrade-button {
+.main-screen__upgrade-button {
     align-self: center;
     padding: 8px 20px;
     gap: 2px;
     border-radius: 39px;
 }
 @media (max-width: 480px) {
-    #metrics{
+    .main-screen__metrics{
         flex-direction: column;
     }
 }
 @media (min-width: 769px) {
-    .metric-block {
-        min-width: 150px;
+    .main-screen__metric-block {
+        min-width: 135px;
     }
-    #metrics {
+    .main-screen__metrics {
         justify-content: space-between;
     }
 }
 @media (min-width: 1025px) {
-    .metric-block {
+    .main-screen__metric-block {
         min-width: 160px;
     }
 }
 @media (min-width: 1225px) {
-    .metric-block {
+    .main-screen__metric-block {
         min-width: 200px;
     }
 }
-#metrics {
+.main-screen__metrics {
     display:flex;
     flex-wrap:wrap;
     align-self: stretch;
 }
-.metric-block {
+.main-screen__metric-block {
     background: #FFFFFF;
-}
-.metrics-h3{
-    color: #5F6980;
-}
-.metrics-h1{
-    color: #5F6980;
-    #282828;
-    margin-bottom: 1em;
-}
-
-#users, #revenue, #new-signups, #retention {
     padding: 12px 16px;
     gap: 8px;
     box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.06);
@@ -230,7 +235,14 @@ header {
     align-self: stretch;
     flex-grow: 0;
 }
-.badge {
+.main-screen__metrics-h3{
+    color: #5F6980;
+}
+.main-screen__metrics-h1{
+    color: #5F6980;
+    margin-bottom: 1em;
+}
+.main-screen__green-badge, .main-screen__red-badge, .main-screen__grey-badge, .main-screen__orange-badge {
     font-weight: 600;
     font-size: 12px;
     padding: 2px 10px;
@@ -238,31 +250,29 @@ header {
     border-radius: 100px;
     display: inline-block;
 }
-.green {
+.main-screen__green-badge {
     background: #DCFFF5;
     color: #20C997;
 }
-.red {
+.main-screen__red-badge {
     background: #FFE0E3;
     color: #DC3545;
 }
-.grey{
+.main-screen__grey-badge{
     background: #F2F4F7;
     color: #5F6980;
 }
-.orange {
+.main-screen__orange-badge {
     background: #FFEAD8;
     color: #FD7E14;
 }
-.footer-span {
-}
-.footer-paragraph {
+.main-screen__footer-paragraph {
     display: inline;
     font-weight: 600;
     font-size: 12px;
     color: #9D9FA2;
 }
-#performance {
+.main-screen__performance {
     background: #FFFFFF;
     font-weight: 600;
     font-size: 16px;
@@ -270,89 +280,113 @@ header {
     padding: 0px 0px 24px;
     gap: 24px;
 }
-#installed-apps {
+@media (max-width: 768px) {
+    .main-screen__graph-curves-svg {
+        width: calc(100vw - 60px);
+    }
+}
+@media (min-width: 769px) {
+    .main-screen__graph-curves-svg{
+        height: 400px;
+        width: calc(100vw - 292px);
+    }
+}
+.main-screen__graph-curves-svg{
+    height: 400px;
+}
+.main-screen__installed-apps {
     background: #FFFFFF;
     font-weight: 600;
     font-size: 18px;
 }
-.header {
+.main-screen__block-header {
     background: #FFFFFF;
     border-bottom: 1px solid #EAECF0;
 }
-#performance-header, #apps-header {
+.main-screen__block-label {
+    padding: 0px 20px;
     display:inline-block;
     color: #282828;
 }
-.three-dots {
+.main-screen__header-three-dots {
+    padding: 0px 20px;
     display: inline-block;
     float: right;
     color: #9D9FA2;
 }
-#graph {
+.main-screen__graph {
     display: flex;
     flex-direction: column;
     padding: 24px 0px 0px 0px;
 }
-#first-row {
+.main-screen__graph-first-row {
     display: flex;
     flex-direction: row;
 }
-#x-axis {
+.main-screen__graph-x-axis {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
-.x-label, .y-label {
+.main-screen__graph-x-label, .y-label {
     font-weight: 400;
     font-size: 12px;
     color: #9D9FA2;
 }
-.curves{
+.main-screen__graph-curves{
     padding-left: 8px;
     align-self: stretch;
     flex-grow:1;
 }
-svg {
-    viewbox: auto;
-}
-#y-axis {
+.main-screen__graph-y-axis {
     display:flex;
     flex-direction: row;
     justify-content: space-between;
 }
-.y-label {
+.main-screen__graph-y-label {
 }
-#performance-footer{
+.main-screen__performance-footer{
     text-align: center;
     display:flex;
     justify-content: center;
 }
-.resource {
+.main-screen__graph-resource{
     font-weight: 400;
     font-size: 14px;
     padding: 0px 8px;
     gap: 8px;
     color: #5F6980;
 }
-#instagram-dot {
+.main-screen__performance-instagram-dot {
     color: #5A9CFE;
 }
-#facebook-dot {
+.main-screen__performance-facebook-dot {
     color: #20C997;
 }
-#installed-apps{
+.main-screen__installed-apps{
     align-self: stretch;
 }
-#table-container {
-    overflow-x: scroll;
+.main-screen__table-container {
+
+    overflow: auto;
 }
-#apps {
+@media (min-width: 769px) {
+    .main-screen__table-container {
+        width: calc(100vw - 270px);
+    }
+}
+@media (max-width: 768px) {
+    .main-screen__table-container {
+        width: calc(100vw - 38px);
+    }
+}
+.main-screen__apps-table {
     align-self: stretch;
     background: #FFFFFF;
     border-radius: 12px;
     border-spacing: 0px;
     table-layout: fixed;
-    width: 100%;
+    width: 1044px;
 }
 th {
     min-width: 100px;
@@ -369,13 +403,10 @@ tr {
     font-size: 14px;
     color:#5F6980;
 }
-#header-source {
-    min-width: 150px;
-}
-.table-source {
+.main-screen__table-source-icon {
     padding: 0px 0px 0px 24px;
 }
-.table-header {
+.main-screen__table-header, .main-screen__table-header-colspan2 {
     text-align: left;
     color: #5F6980;
     font-weight: 400;
@@ -383,30 +414,28 @@ tr {
     padding: 16px 24px;
     background: #F9FAFB;
 }
-.source-name {
+.main-screen__table-header-colspan2 {
+    width: 140px;
+}
+.main-screen__table-source-name {
     padding: 0px 0px;
     font-weight: 600;
     font-size: 14px;
     color: #282828;
 }
-.source-container {
-}
-.source-icon {
+.main-screen__table-source-svg {
     height: 25px;
     width: 25px;
     padding:10px;
     box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.06);
     border-radius: 9.42857px;
 }
-.source-name{
-    min-width: 100px;
-}
-.table-amount {
+.main-screen__table-amount {
     font-weight: 400;
     font-size: 14px;
     color:#5F6980;
 }
-#footer-counter {
+.main_screen__footer {
     align-self: center;
     font-weight: 400;
     font-size: 14px;
