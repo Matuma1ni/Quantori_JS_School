@@ -81,13 +81,13 @@ body {
 #opened-menu {
     padding-left: 20px;
 }
-
 #menu-footer {
     display:flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-top: 440px;
+    margin-top: 420px;
     padding: 8px 12px;
+    border-top: 1px solid #EAECF0;
 }
 h1 {
     font-weight: 600;
