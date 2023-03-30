@@ -135,11 +135,11 @@ const getUniqueValues = numbers => {
   * Use: switch case or object like a map structure    */
 const getErrorMessage = code => {
     const errorDict = {
-        500: 'Server Error', 
-        401: 'Authorization failed',
-        402: "Server Error",
-        403: "Access denied",
-        404: "Not found",
+      500: 'Server Error', 
+      401: 'Authorization failed',
+      402: "Server Error",
+      403: "Access denied",
+      404: "Not found",
     }
     return errorDict[code];
 };
@@ -241,6 +241,11 @@ const getNumberOfVowels = string =>  string.match(/[aeiouAEIOU]/ig).length;
   * with capital odd.
   * 'abcdef' => ['AbCdEf', 'aBcDeF']   */
 const getCapitalizedStrings = string => {
+    let oddCapitalized = [...string].map((letter, index) => letter[index%2 ? 'toLowerCase' : 'toUpperCase']())
+                                                  .join('');
+    let evencapitalized = [...string].map((letter, index) => letter[index%2 ? 'toUpperCase' : 'toLowerCase']())
+                                                  .join('');
+    return [oddCapitalized, evencapitalized];
 };
 /**
   * Exercise 21
@@ -261,6 +266,26 @@ const getCapitalizedStrings = string => {
   * S consists only of lowercase letters [a-z]
   */
 const getCorrectString = string => {
+  const regex = /([a-z])\1\1/g;
+  let isIndexes = true;
+  let lenIndexes;
+  let stringArray;
+  while (isIndexes === true) {
+    indexes = [];
+    stringArray = string.split('');
+    while ((match = regex.exec(string)) != null) {
+      indexes = indexes.concat(match.index);
+    };
+    lenIndexes = indexes.length;
+    for (let i = (lenIndexes-1); i > -1; i--) {
+      stringArray.splice(indexes[i], 1);
+    };
+    string = stringArray.join('');
+    if ((match = regex.exec(string)) === null) {
+      isIndexes = false;
+    };  
+  };
+  return string;
 };
 /**
  * Exercise 22
@@ -270,13 +295,30 @@ const getCorrectString = string => {
  * [1, 2, [3, 4], 5, [[6, 7], 8], 9] => [1, 2, 3, 4, 5, 6, 7, 8, 9]
  */
 const getFlattenedArray = numbers => {
+  let hasNestedArray;
+  do {
+    hasNestedArray = false;
+    for (let i=0; i<numbers.length; i++) {
+      if (Array.isArray(numbers[i]) === true) {
+        hasNestedArray = true;
+      }
+    }
+    if (hasNestedArray === true) {
+      numbers = numbers.flat();
+    }
+  } while (hasNestedArray === true)
+  return numbers;
 };
-  /**
-  * Exercise 23
+  /**   Exercise 23
   *
   * Implement a function that has an array of numbers as input and an array of not unique values as output.
   * 
-  * [1, 2, 2, 4, 5, 5] => [2, 5]
-  */
+  * [1, 2, 2, 4, 5, 5] => [2, 5]  */
 const getNotUniqueValues = numbers => {
+  let uniqueArray = getUniqueValues(numbers);
+  let lengthUnique = uniqueArray.length;
+  for (let i = 0; i < lengthUnique; i++) {
+    numbers.splice(numbers.indexOf(uniqueArray[i]), 1)
+  }
+  return getUniqueValues(numbers);
 };
