@@ -169,8 +169,7 @@ const getFullName = user => `Name: ${user['firstName']} ${user['patronymic']} ${
   *
   * Use: map   */
 const multiplyTo = (numbers, multiplier) => numbers.map((number) => number*multiplier);
-/**
-  * Exercise 15
+/**  Exercise 15
   *
   * Implement a function that takes 2 arguments as input: an array and a franchise,
   * and returns a string with the names of the heroes separated by a comma:
@@ -184,14 +183,13 @@ const multiplyTo = (numbers, multiplier) => numbers.map((number) => number*multi
   * Marvel
   * => Ironman, Thor
   *
-  * Use: filter, map, join
-  */
-const getРЎharacterNames = (characters, franchise) => {
-};
+  * Use: filter, map, join   */
+const getCharacterNames = (characters, franchise) => characters.filter(character => character['franchise']===franchise)
+                                                                .map(aDict => aDict['name'])
+                                                                .join(', ');
 
 // ----==== Advanced exercises (8 items) ====----
-/**
-  * Exercise 16
+/**   Exercise 16
   *
   * Write a function that returns an array of the smallest row values of a two-dimensional array
   *[
@@ -200,12 +198,9 @@ const getРЎharacterNames = (characters, franchise) => {
   * [30,3,300,4],
   * [40,4,300,4],
   *]
-  * => [1,2,3,4]
-  */
-const getSmallestRow = numbers => {
-};
-  /**
-  * Exercise 17
+  * => [1,2,3,4]    */
+const getSmallestRow = numbers =>  numbers.map(numArray => Math.min(...numArray));
+  /**   Exercise 17
   *
   * Write a function that returns an array of the smallest column values of a two-dimensional array
   *[
@@ -214,36 +209,37 @@ const getSmallestRow = numbers => {
   * [1,2,30,4],
   * [1,2,3,40],
   *]
-  * => [1,2,3,4]
-  */
-const getSmallestColumn = numbers => {
-};
+  * => [1,2,3,4]    */
+const getSmallestColumn = numbers => getSmallestRow(numbers[0].map((_, colIndex) => number.map(row => row[colIndex])));
 /**
   * Exercise 18
   *
   * Write a function that returns the 2 biggest value of an array
   * [4,3,2,1] => [4,3]
   */
-const get2BiggestValues = numbers => {
-};
-/**
-  * Exercise 19
+//const get2BiggestValues = numbers => numbers.sort().reverse().slice(0, 2);
+const get2BiggestValues = numbers => numbers.sort((a, b) => b - a).slice(0, 2);
+/** Exercise 19
   *
   * Write a function that returns the number of vowels in a string in English
   * ( a, e, i, o, u ).
   *
-  * 'Return the number (count) of vowels in the given string.' => 15
-  */
-const getNumberOfVowels = string => {
+  * 'Return the number (count) of vowels in the given string.' => 15 */
+/* Solution without Regex
+    const getNumberOfVowels = string => {
+    let stringArray = [...string.toLowerCase()]
+    let vowelsArray = ['a', 'e', 'i', 'o', 'u'];
+    let numVowelsArray = vowelsArray.map(vowel => [stringArray].reduce((total, letter) => total+ (letter==vowel), 0));
+    return numVowelsArray.reduce((a,b) => a+b, 0);
 };
-/**
-  * Exercise 20
+*/
+const getNumberOfVowels = string =>  string.match(/[aeiouAEIOU]/ig).length;
+/** Exercise 20
   *
   * Write a function that returns an array of two strings where the first element
   * is the original string with uppercase even letters, and the second
   * with capital odd.
-  * 'abcdef' => ['AbCdEf', 'aBcDeF']
-  */
+  * 'abcdef' => ['AbCdEf', 'aBcDeF']   */
 const getCapitalizedStrings = string => {
 };
 /**
