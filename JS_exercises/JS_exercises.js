@@ -22,6 +22,7 @@
   * Write a function that returns odd array values.
   * [1,2,3,4] => [1,3]   */
 const getOddValues = numbers => numbers.filter(num => num%2 !== 0);
+
 /** Exercise 2
   *
   * Write a function that returns the smallest value of an array
@@ -35,11 +36,13 @@ const getSmallestValue = numbers => {
     }
     return minimalValue;
 };
+
 /** Exercise 3
   *
   * Write a function that returns the biggest value of an array
   * [5,22,9,43] => 43     */
 const getBiggestValue = numbers => Math.max(...numbers);
+
 /** Exercise 4
   *
   * Write a function that takes an array of strings as input and returns only those shorter than 20 characters
@@ -55,6 +58,7 @@ const getBiggestValue = numbers => Math.max(...numbers);
   *
   * Use: filter    */
 const getShorterStrings = (strings, characters = 20) => strings.filter(string => string.length < characters);
+
 /** Exercise 5
   *
   * Write a function that takes the following data as input:
@@ -68,7 +72,8 @@ const getShorterStrings = (strings, characters = 20) => strings.filter(string =>
   * And returns an array of strings:  [ 'shark likes ocean', 'turtle likes pond', 'otter likes fish biscuits' ]
   *
   * Use: map    */
-const getComputedStrings = fish => fish.map(aDict => `${aDict['name']} likes ${aDict['likes']}`);
+const getComputedStrings = fish => fish.map(aDict => `${aDict.name} likes ${aDict.likes}`);
+
 /** Exercise 6
   *
   * Write a function that takes 2 objects as input and returns 1 with  
@@ -78,12 +83,14 @@ const getComputedStrings = fish => fish.map(aDict => `${aDict['name']} likes ${a
   *
   * We use: ...    */
 const mergeObjects = objects => Object.assign({}, ...objects);
+
 /** Exercise 7
   *
   * Write a function that returns the smallest value of an array [5,200,-5,41] => -5
   *
   * Use: operator ... and Math.min  */
 const getSmallestValue2 = numbers => Math.min(...numbers);
+
 /** Exercise 8
   *
   * Write a function that returns odd array values.
@@ -91,9 +98,10 @@ const getSmallestValue2 = numbers => Math.min(...numbers);
   *
   * Use: reduce    */
 const getOddValues2 = numbers => {
-    const condition = (result, elem) => elem % 2 === 0 ? result : result.concat(elem);
-    return numbers.reduce(condition, []);
+    const reducer = (result, elem) => elem % 2 === 0 ? result : result.concat(elem);
+    return numbers.reduce(reducer, []);
 };
+
 /**   Exercise 9
   *
   * Write a function that accepts data from the basket as input in the following form:
@@ -110,9 +118,10 @@ const getOddValues2 = numbers => {
   *
   * Use: reduce    */
 const calculateTotal = products => {
-    const reducer = (previousSum, currentDict) => previousSum + currentDict['price']*currentDict['count'];
+    const reducer = (previousSum, currentDict) => previousSum + currentDict.price*currentDict.count;
     return products.reduce(reducer, 0);
 };
+
 /**   Exercise 10
   *
   * Implement a function that has an array of numbers as input and an array of unique values as output
@@ -123,6 +132,7 @@ const getUniqueValues = numbers => {
     const reducer = (result, currElem) => result.indexOf(currElem) === -1 ? result.concat(currElem) : result;
     return numbers.reduce(reducer, []);
 };
+
 /** Exercise 11
   *
   * Implement a function whose input is a numeric code of an error, the output is a string with a message
@@ -135,14 +145,15 @@ const getUniqueValues = numbers => {
   * Use: switch case or object like a map structure    */
 const getErrorMessage = code => {
     const errorDict = {
-      500: 'Server Error', 
-      401: 'Authorization failed',
+      500: "Server Error", 
+      401: "Authorization failed",
       402: "Server Error",
       403: "Access denied",
       404: "Not found",
     }
     return errorDict[code];
 };
+
 /** Exercise 12
   *
   * Write a function that returns the 2 smallest values of an array
@@ -150,6 +161,7 @@ const getErrorMessage = code => {
   *
   * Use: .sort()      */
 const get2SmallestValues = numbers => numbers.sort().slice(0, 2);
+
 /** Exercise 13
   *
   * Implement a function, at the input of which an object of the following form:
@@ -159,7 +171,8 @@ const get2SmallestValues = numbers => numbers.sort().slice(0, 2);
   * patronymic: 'Ivanovich'
   *}
   * output line with the message 'Name: Petr Ivanovich Vasiliev'   */
-const getFullName = user => `Name: ${user['firstName']} ${user['patronymic']} ${user['secondName']}`;
+const getFullName = user => `Name: ${user.firstName} ${user.patronymic} ${user.secondName}`;
+
 /** Exercise 14
   *
   * Implement a function that takes 2 arguments as input: an array of numbers and a multiplier,
@@ -169,6 +182,7 @@ const getFullName = user => `Name: ${user['firstName']} ${user['patronymic']} ${
   *
   * Use: map   */
 const multiplyTo = (numbers, multiplier) => numbers.map((number) => number*multiplier);
+
 /**  Exercise 15
   *
   * Implement a function that takes 2 arguments as input: an array and a franchise,
@@ -184,8 +198,8 @@ const multiplyTo = (numbers, multiplier) => numbers.map((number) => number*multi
   * => Ironman, Thor
   *
   * Use: filter, map, join   */
-const getCharacterNames = (characters, franchise) => characters.filter(character => character['franchise']===franchise)
-                                                                .map(aDict => aDict['name'])
+const getCharacterNames = (characters, franchise) => characters.filter(character => character.franchise===franchise)
+                                                                .map(aDict => aDict.name)
                                                                 .join(', ');
 
 // ----==== Advanced exercises (8 items) ====----
@@ -200,6 +214,7 @@ const getCharacterNames = (characters, franchise) => characters.filter(character
   *]
   * => [1,2,3,4]    */
 const getSmallestRow = numbers =>  numbers.map(numArray => Math.min(...numArray));
+
   /**   Exercise 17
   *
   * Write a function that returns an array of the smallest column values of a two-dimensional array
@@ -210,15 +225,17 @@ const getSmallestRow = numbers =>  numbers.map(numArray => Math.min(...numArray)
   * [1,2,3,40],
   *]
   * => [1,2,3,4]    */
-const getSmallestColumn = numbers => getSmallestRow(numbers[0].map((_, colIndex) => number.map(row => row[colIndex])));
+const transpose = matrix => matrix[0].map((col, i) => matrix.map(row => row[i]));
+const getSmallestColumn = numbers => getSmallestRow(transpose(numbers));
+
 /**
   * Exercise 18
   *
   * Write a function that returns the 2 biggest value of an array
   * [4,3,2,1] => [4,3]
   */
-//const get2BiggestValues = numbers => numbers.sort().reverse().slice(0, 2);
 const get2BiggestValues = numbers => numbers.sort((a, b) => b - a).slice(0, 2);
+
 /** Exercise 19
   *
   * Write a function that returns the number of vowels in a string in English
@@ -234,18 +251,33 @@ const get2BiggestValues = numbers => numbers.sort((a, b) => b - a).slice(0, 2);
 };
 */
 const getNumberOfVowels = string =>  string.match(/[aeiouAEIOU]/ig).length;
+
 /** Exercise 20
   *
   * Write a function that returns an array of two strings where the first element
   * is the original string with uppercase even letters, and the second
   * with capital odd.
   * 'abcdef' => ['AbCdEf', 'aBcDeF']   */
-const getCapitalizedStrings = string => {
+/* const getCapitalizedStrings = string => {
     let oddCapitalized = [...string].map((letter, index) => letter[index%2 ? 'toLowerCase' : 'toUpperCase']())
                                                   .join('');
     let evencapitalized = [...string].map((letter, index) => letter[index%2 ? 'toUpperCase' : 'toLowerCase']())
                                                   .join('');
     return [oddCapitalized, evencapitalized];
+}; */
+const getCapitalizedStrings = string => {
+  let oddCapitalizedArray = [];
+  let evenCapitalizedArray = [];
+  for (let i=0; i<string.length; i++) {
+    if (i%2 === 0) {
+      oddCapitalizedArray.push(string[i].toUpperCase());
+      evenCapitalizedArray.push(string[i].toLowerCase());
+    } else {
+      oddCapitalizedArray.push(string[i].toLowerCase());
+      evenCapitalizedArray.push(string[i].toUpperCase());
+    };
+  };
+  return [oddCapitalizedArray.join(''), evenCapitalizedArray.join('')]
 };
 /**
   * Exercise 21
@@ -263,30 +295,9 @@ const getCapitalizedStrings = string => {
   *
   * Assumptions:
   * N is an integer in the range [1..200,000]
-  * S consists only of lowercase letters [a-z]
-  */
-const getCorrectString = string => {
-  const regex = /([a-z])\1\1/g;
-  let isIndexes = true;
-  let lenIndexes;
-  let stringArray;
-  while (isIndexes === true) {
-    indexes = [];
-    stringArray = string.split('');
-    while ((match = regex.exec(string)) != null) {
-      indexes = indexes.concat(match.index);
-    };
-    lenIndexes = indexes.length;
-    for (let i = (lenIndexes-1); i > -1; i--) {
-      stringArray.splice(indexes[i], 1);
-    };
-    string = stringArray.join('');
-    if ((match = regex.exec(string)) === null) {
-      isIndexes = false;
-    };  
-  };
-  return string;
-};
+  * S consists only of lowercase letters [a-z] */
+const getCorrectString = string => string.replace(/(.)\1\1+/g, "$1$1");
+
 /**
  * Exercise 22
  *
@@ -294,31 +305,35 @@ const getCorrectString = string => {
  * and returns an array of all their elements without nesting.
  * [1, 2, [3, 4], 5, [[6, 7], 8], 9] => [1, 2, 3, 4, 5, 6, 7, 8, 9]
  */
-const getFlattenedArray = numbers => {
-  let hasNestedArray;
-  do {
-    hasNestedArray = false;
-    for (let i=0; i<numbers.length; i++) {
-      if (Array.isArray(numbers[i]) === true) {
-        hasNestedArray = true;
-      }
-    }
-    if (hasNestedArray === true) {
-      numbers = numbers.flat();
-    }
-  } while (hasNestedArray === true)
-  return numbers;
-};
+const getFlattenedArray = numbers => numbers.flat(Infinity);
+
   /**   Exercise 23
   *
   * Implement a function that has an array of numbers as input and an array of not unique values as output.
   * 
   * [1, 2, 2, 4, 5, 5] => [2, 5]  */
-const getNotUniqueValues = numbers => {
+/* const getNotUniqueValues = numbers => {
   let uniqueArray = getUniqueValues(numbers);
   let lengthUnique = uniqueArray.length;
   for (let i = 0; i < lengthUnique; i++) {
     numbers.splice(numbers.indexOf(uniqueArray[i]), 1)
   }
   return getUniqueValues(numbers);
-};
+}; */
+/* const getNotUniqueValues = numbers => {
+  let symbolsDict = {};
+  let uniqueArray = [];
+  for (const number of numbers) {
+    if ((symbolsDict[number] !== undefined) && (!uniqueArray.includes(number))){
+      uniqueArray.push(number);
+    } else {
+      symbolsDict[number] = true;
+    }
+  }
+  return uniqueArray;
+} */
+const getNotUniqueValues = numbers => {
+  const reducer = (result, currElem, i) => (numbers.indexOf(currElem, i+1) !== -1)&&(!result.includes(currElem)) 
+                                                ? result.concat(currElem) : result;
+  return numbers.reduce(reducer, []);
+}
