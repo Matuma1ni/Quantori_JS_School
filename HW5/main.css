@@ -29,11 +29,14 @@ input::placeholder {
     margin-top: 44px;
     margin-left: 164px;
 }
+.divHeader {
+    margin-left: 164px;
+}
 .listsDiv {
     width: 482px;
     margin-top: 42px;
 }
-.textInput {
+.searchInput {
     color: #000000;
     font-weight: 500;
     font-size: 16px;
@@ -68,13 +71,14 @@ input::placeholder {
     background: #FFFFFF;
     float: right;
 }
-.deleteButton:hover {
-}
-.deleteImage {
+.deleteImage svg{
     fill: #838383;
 }
-.deleteImage:hover {
+.deleteImage svg:hover {
     fill: rgba(60, 134, 244, 0.6);
+}
+.deleteImage svg:active {
+    fill: #0053CF;
 }
 .buttonNewTask {
     border: none;
@@ -138,7 +142,7 @@ input::placeholder {
     line-height: 20px;
     border: none;
 }
-.popupTextInput {
+.textInput {
     color: #000000;
     font-weight: 500;
     font-size: 16px;
