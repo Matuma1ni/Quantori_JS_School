@@ -154,7 +154,7 @@
      * @returns {HTMLDivElement} - The app container
      */
     function AppHeader() {
-        const [items, setItems] = useState(["Task 1 Title", "Task 2 Title", "Task 3 Title"]);
+        const [items, setItems] = useState(JSON.parse(localStorage.getItem('items'))|| []);
         const [searchString, setSearchString] = useSearchString('');
 
         function changeSearchString() {
@@ -163,12 +163,16 @@
 
         function addNewTask() {
             popupOverlay.style.display = "block";
+            textInput.focus();
 
         }
 
         function addItem() {
             text = textInput.value;
-            setItems([...items, `${text}`]);
+            items.push(text);
+            localStorage.setItem('items', JSON.stringify(items));
+            setItems(items);
+            textInput.value = '';
             closePopup();
         }
 
@@ -193,8 +197,10 @@
         popupHeader.innerHTML = "Add New Task";
         const divPopupButtons = document.createElement("div");
         divPopupButtons.classList.add("divPopupButtons");
+
         const textInput = TextInput("New Task");
         textInput.classList.add("textInput");
+
         const addTaskButton = Button({text: "Add", onClick: addItem});
         addTaskButton.classList.add("popupSubmitButton");
         const closePopupButton = Button({text: "Cancel", onClick: closePopup});
@@ -211,9 +217,11 @@
     }
 
     function App() {
-        const [items, setItems] = useState(["Task 1 Title", "Task 2 Title", "Task 3 Title"]);
-        const [doneItems, setDoneItems] = useDoneState(["Completed Task 1 Title", "Completed Task 2 Title"]);
+        const [items, setItems] = useState(JSON.parse(localStorage.getItem('items')) || []);
+        const [doneItems, setDoneItems] = useDoneState(JSON.parse(localStorage.getItem('doneItems')) || []);
         const [searchString, setSearchString] = useSearchString('');
+        localStorage.setItem('items', JSON.stringify(items));
+        localStorage.setItem('doneItems', JSON.stringify(doneItems));
 
         /* function addNewTask() {
             popupOverlay.style.display = "block";
@@ -231,13 +239,17 @@
 
         function deleteTask(i) {
             items.splice(i, 1);
+            localStorage.setItem('items', JSON.stringify(items));
             setItems(items);
         }
 
         function completeTask(i) {
-            let element = items.slice(i, 1);
+            let element = items.slice(i, (i+1));
             items.splice(i, 1);
-            setDoneItems([...doneItems, element]);
+            doneItems.push(element);
+            localStorage.setItem('doneItems', JSON.stringify(doneItems));
+            localStorage.setItem('items', JSON.stringify(items));
+            setDoneItems(doneItems);
             setItems(items);
         }
 
