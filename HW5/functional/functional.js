@@ -143,10 +143,11 @@
         return searchInput;
     }
 
-    function TextInput(placeholder) {
+    function TextInput({placeholder, onInput}) {
         const textInput = document.createElement("INPUT");
         textInput.setAttribute("type", "text");
         textInput.placeholder = placeholder;
+        textInput.oninput = onInput;
         return textInput;
     }
     /**
@@ -180,6 +181,15 @@
             popupOverlay.style.display = "none";
         }
 
+        function changeButtonColor() {
+            if (textInput.value !== '') {
+                addTaskButton.disabled = false;
+            };
+            if (textInput.value === '') {
+                addTaskButton.disabled = true;
+            }
+        }
+
         const div = document.createElement("div");
         div.classList.add("divHeader");
         const newTaskButton = Button({text: "+ New Task", onClick: addNewTask});
@@ -198,11 +208,12 @@
         const divPopupButtons = document.createElement("div");
         divPopupButtons.classList.add("divPopupButtons");
 
-        const textInput = TextInput("New Task");
+        const textInput = TextInput({placeholder: "New Task", onInput: changeButtonColor});
         textInput.classList.add("textInput");
 
         const addTaskButton = Button({text: "Add", onClick: addItem});
         addTaskButton.classList.add("popupSubmitButton");
+        addTaskButton.disabled = true;
         const closePopupButton = Button({text: "Cancel", onClick: closePopup});
         closePopupButton.classList.add("popupCancelButton");
         popupOverlay.append(divPopup);
