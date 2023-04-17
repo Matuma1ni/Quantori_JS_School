@@ -48,19 +48,18 @@
      */
     function List({items, searchString, onDeleteTask, onCompleteTask}) {
         const ul = document.createElement("ul");
-        const listItems = [];
-        for (let i=0; i<items.length; i++) {
+        for (let item of items) {
             if (searchString) {
-                if (items[i].includes(searchString)) {
-                    ul.append(ListElement({item: items[i],
-                        onDeleteTask: () => onDeleteTask(i),
-                        onCompleteTask: () => onCompleteTask(i)
+                if (item.title.includes(searchString)) {
+                    ul.append(ListElement({item,
+                        onDeleteTask: () => onDeleteTask(item.id),
+                        onCompleteTask: () => onCompleteTask(item.id)
                         }))
                 }
             } else {
-            ul.append(ListElement({item: items[i],
-                                   onDeleteTask: () => onDeleteTask(i),
-                                   onCompleteTask: () => onCompleteTask(i)
+            ul.append(ListElement({item,
+                                   onDeleteTask: () => onDeleteTask(item.id),
+                                   onCompleteTask: () => onCompleteTask(item.id)
                                    }));
             }
         }
@@ -80,7 +79,7 @@
         checkbox.setAttribute("src", "static/checkboxTask.svg");
         checkbox.addEventListener("click", onCompleteTask);
         let span = document.createElement("span");
-        span.innerHTML = `${item}`;
+        span.innerHTML = item.title;
         span.classList.add('spanTask');
 
         li.append(checkbox, span, deleteButton);
@@ -89,13 +88,13 @@
 
     function DoneList({doneItems, searchString}) {
         const ul = document.createElement("ul");
-        for (let i=0; i<doneItems.length; i++) {
+        for (let doneItem of doneItems) {
             if (searchString) {
-                if (doneItems[i].includes(searchString)) {
-                    ul.append(DoneListElement({doneItem: doneItems[i]}));
+                if (doneItem.title.includes(searchString)) {
+                    ul.append(DoneListElement({doneItem}));
                 };
             } else {
-                ul.append(DoneListElement({doneItem: doneItems[i]}));
+                ul.append(DoneListElement({doneItem}));
             }
         }
         return ul;
@@ -106,7 +105,7 @@
         const checkboxSVG = document.createElement("img");
         checkboxSVG.setAttribute("src", "static/checkboxDone.svg");
         let span = document.createElement("span");
-        span.innerHTML = `${doneItem}`;
+        span.innerHTML = doneItem.title;
         span.classList.add("spanDone");
         li.append(checkboxSVG, span);
         return li;
@@ -191,8 +190,14 @@
      * App container
      * @returns {HTMLDivElement} - The app container
      */
-    function AppHeader() {
-        const [items, setItems] = useState(JSON.parse(localStorage.getItem('items'))|| []);
+    async function AppHeader() {
+        async function getTodos() {
+            const response = await fetch('http://localhost:3004/tasks');
+            return response.json();
+        }
+
+        const [items, setItems] = useState(await getTodos());
+        const todoItems = items.filter(item => item.isCompleted === false);
         const [searchString, setSearchString] = useSearchString('');
 
         function changeSearchString() {
@@ -206,7 +211,6 @@
 
         function addItem(text) {
             items.push(text);
-            localStorage.setItem('items', JSON.stringify(items));
             setItems(items);
             closePopup();
         }
@@ -236,25 +240,27 @@
         return div;
     }
 
-    function App() {
-        const [items, setItems] = useState(JSON.parse(localStorage.getItem('items')) || []);
-        const [doneItems, setDoneItems] = useDoneState(JSON.parse(localStorage.getItem('doneItems')) || []);
+    async function App() {
+        async function getTodos() {
+            const response = await fetch('http://localhost:3004/tasks');
+            return response.json();
+        }
+
+        const [items, setItems] = useState(await getTodos());
+        console.log(items);
+        const todoItems = items.filter(item => item.isCompleted === false);
+        console.log(todoItems);
+        const completedItems = items.filter(item => item.isCompleted === true);
         const [searchString, setSearchString] = useSearchString('');
-        localStorage.setItem('items', JSON.stringify(items));
-        localStorage.setItem('doneItems', JSON.stringify(doneItems));
-        function deleteTask(i) {
+
+        async function deleteTask(i) {
             items.splice(i, 1);
-            localStorage.setItem('items', JSON.stringify(items));
             setItems(items);
         }
 
         function completeTask(i) {
             let element = items.slice(i, (i+1));
             items.splice(i, 1);
-            doneItems.push(element);
-            localStorage.setItem('doneItems', JSON.stringify(doneItems));
-            localStorage.setItem('items', JSON.stringify(items));
-            setDoneItems(doneItems);
             setItems(items);
         }
 
@@ -266,8 +272,8 @@
         div.classList.add("mainDiv");
         const listsDiv = document.createElement("div");
         listsDiv.classList.add("listsDiv");
-        const list = List({items, onDeleteTask: deleteTask, onCompleteTask: completeTask, searchString});
-        const doneList = DoneList({doneItems, searchString});
+        const list = List({items: todoItems, onDeleteTask: deleteTask, onCompleteTask: completeTask, searchString});
+        const doneList = DoneList({doneItems: completedItems, searchString});
 
         const taskHeader = document.createElement("h3");
         taskHeader.innerHTML = "All Tasks";
@@ -283,15 +289,15 @@
      * Render the app.
      * On change whole app is re-rendered.
      */
-    function renderHeader(){
+    async function renderHeader(){
         const appContainer = document.getElementById("functional-header");
         appContainer.innerHTML = "";
-        appContainer.append(AppHeader());
+        appContainer.append(await AppHeader());
     }
-    function renderApp() {
+    async function renderApp() {
         const appContainer = document.getElementById("functional-example");
         appContainer.innerHTML = "";
-        appContainer.append(App());
+        appContainer.append(await App());
     }
 
     // initial render
