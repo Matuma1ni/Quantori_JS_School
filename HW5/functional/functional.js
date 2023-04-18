@@ -208,25 +208,40 @@
     }
 
     async function WeatherWidget() {
-        const CITY = "Tbilisi";
-        const QUERY = `?key=${API_KEY}&q=${CITY}&aqi=no`;
+        let coordinates = [41.716667, 44.783333];
+        function getCoordinates() {
+            return new Promise(function(resolve, reject) {
+              navigator.geolocation.getCurrentPosition(resolve, reject);
+            });
+        }       
+        if ("geolocation" in navigator) {
+            let position = await getCoordinates();
+            coordinates = [position.coords.latitude, position.coords.longitude];
+        }                                                                          
+        const coordinateString = `${coordinates[0]},${coordinates[1]}`
+        const query = `?key=${API_KEY}&q=${coordinateString}&aqi=no`;
+        console.log(query);
 
         const getWeather = async() => {
-            const response = await fetch(URL + QUERY);
+            const response = await fetch(URL + query);
             const data = await response.json();
-            return data.current.temp_c;
+            return [data.current.temp_c, data.current.condition.icon, data.location.name];
         } 
 
         const divWidget = document.createElement("div");
         divWidget.classList.add("divWidget");
-        const weatherSpan = document.createElement("span");
         const weather = await getWeather();
-        weatherSpan.innerHTML = `${weather}°`;
+        const weatherSpan = document.createElement("span");
+        weatherSpan.innerHTML = `${weather[0]}°`;
         weatherSpan.classList.add("weather");
+        const weatherIcon = document.createElement("img");
+        weatherIcon.classList.add("weatherIcon");
+        weatherIcon.setAttribute("src", weather[1]);
+        const city = weather[2]; 
         const citySpan = document.createElement("span");
         citySpan.classList.add("city");
-        citySpan.innerHTML = "Tbilisi";
-        divWidget.append(weatherSpan, citySpan);
+        citySpan.innerHTML = city;
+        divWidget.append(weatherIcon, weatherSpan, citySpan);
         return divWidget;
     }
 
