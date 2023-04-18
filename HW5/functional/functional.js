@@ -1,7 +1,9 @@
 (function () {
     let state = undefined;
-    let doneState = undefined;
     let searchString = undefined;
+    const URL = "http://api.weatherapi.com/v1/current.json"
+    const API_KEY = "f8c3dc5311f44fd8a98141433231804";
+
 
     const apiClient = {
         getTodos: async function() {
@@ -204,6 +206,30 @@
 
         return [divPopup, focus];
     }
+
+    async function WeatherWidget() {
+        const CITY = "Tbilisi";
+        const QUERY = `?key=${API_KEY}&q=${CITY}&aqi=no`;
+
+        const getWeather = async() => {
+            const response = await fetch(URL + QUERY);
+            const data = await response.json();
+            return data.current.temp_c;
+        } 
+
+        const divWidget = document.createElement("div");
+        divWidget.classList.add("divWidget");
+        const weatherSpan = document.createElement("span");
+        const weather = await getWeather();
+        weatherSpan.innerHTML = `${weather}°`;
+        weatherSpan.classList.add("weather");
+        const citySpan = document.createElement("span");
+        citySpan.classList.add("city");
+        citySpan.innerHTML = "Tbilisi";
+        divWidget.append(weatherSpan, citySpan);
+        return divWidget;
+    }
+
     /**
      * App container
      * @returns {HTMLDivElement} - The app container
@@ -235,12 +261,14 @@
 
         const div = document.createElement("div");
         div.classList.add("divHeader");
+        const divHeader = document.createElement("div");
         const newTaskButton = Button({text: "+ New Task", onClick: addNewTask});
         newTaskButton.classList.add("buttonNewTask");
         const searchInput = SearchInput({searchString: searchString, placeholder: "Search Task", changeSearchString: changeSearchString});
         searchInput.classList.add("searchInput");
         const header = document.createElement("h1");
         header.innerHTML = "To Do List";
+        const weatherWidget = await WeatherWidget();
         const [popup, popupInputFocus] = AddNewItemPopup({addItem: addItem, 
                                                         closePopup: closePopup});
 
@@ -248,8 +276,8 @@
         popupOverlay.classList.add("popupOverlay");
         popupOverlay.append(popup);
         popupOverlay.style.display = "none"; 
-
-        div.append(header, searchInput, newTaskButton, popupOverlay);
+        divHeader.append(header, weatherWidget);   
+        div.append(divHeader, searchInput, newTaskButton, popupOverlay);
 
         return div;
     }
