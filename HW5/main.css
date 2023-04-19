@@ -168,6 +168,8 @@ input::placeholder {
 }
 .form {
     margin-top: 29px;
+    width: 60%;
+    margin-right: 130px;
 }
 .divPopupButtons {
     display: flex;
