@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Nunito:wght@500;600;700&display=swap');
+
 body, html {
     margin: 0;
     padding: 0;
@@ -204,4 +206,46 @@ input::placeholder {
 }
 .weatherIcon {
     float: left;
+}
+.taskElement {
+    display: flex;
+}
+.checkboxImg {
+    margin-top: 18px;
+}
+.taskDiv {
+    display: inline-block;
+    flex-grow: 1;
+}
+.tag {
+    font-family: 'Inter';
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    margin-left: 20px;  
+    display: inline-block;
+}
+.healthTag {
+    background: rgba(60, 134, 244, 0.31);
+    color: #0053CF;
+}
+.homeTag {
+    background: #E2F7E2;
+    color: #639462;
+
+}
+.workTag {
+    background: #E8D7FF;
+    color: #9747FF;
+}
+.otherTag {
+    background: #FFECC7;
+    color: #EA8C00;
+}
+.doneTag {
+    color: #838383;
+    background: #F5F5F5;
 }

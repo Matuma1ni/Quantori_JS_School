@@ -3,7 +3,12 @@
     let searchString = undefined;
     const URL = "http://api.weatherapi.com/v1/current.json"
     const API_KEY = "f8c3dc5311f44fd8a98141433231804";
-
+    TAGS_CLASSES = {
+        "health": "healthTag",
+        "home": "homeTag",
+        "work": "workTag",
+        "other": "otherTag",
+    };
 
     const apiClient = {
         getTodos: async function() {
@@ -14,7 +19,7 @@
             const requestOptions = {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ title, isCompleted: false })
+                body: JSON.stringify({ title, tag, isCompleted: false })
             };
             const response = await fetch('http://localhost:3004/tasks', requestOptions);
             return response.json();
@@ -88,6 +93,7 @@
 
     function ListElement({item, onDeleteTask, onCompleteTask}) {
         let li = document.createElement("li");
+        li.classList.add("taskElement");
         const deleteImage = document.createElement("span");
         deleteImage.innerHTML = '<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 2H8C8 1.44772 7.55228 1 7 1C6.44772 1 6 1.44772 6 2ZM5 2C5 0.89543 5.89543 0 7 0C8.10457 0 9 0.89543 9 2H13C13.2761 2 13.5 2.22386 13.5 2.5C13.5 2.77614 13.2761 3 13 3H12.4364L11.2313 11.8378C11.0624 13.0765 10.0044 14 8.75422 14H5.24578C3.99561 14 2.93762 13.0765 2.76871 11.8378L1.56355 3H1C0.723858 3 0.5 2.77614 0.5 2.5C0.5 2.22386 0.723858 2 1 2H5ZM6 5.5C6 5.22386 5.77614 5 5.5 5C5.22386 5 5 5.22386 5 5.5V10.5C5 10.7761 5.22386 11 5.5 11C5.77614 11 6 10.7761 6 10.5V5.5ZM8.5 5C8.77614 5 9 5.22386 9 5.5V10.5C9 10.7761 8.77614 11 8.5 11C8.22386 11 8 10.7761 8 10.5V5.5C8 5.22386 8.22386 5 8.5 5ZM3.75954 11.7027C3.86089 12.4459 4.49568 13 5.24578 13H8.75422C9.50432 13 10.1391 12.4459 10.2405 11.7027L11.4272 3H2.57281L3.75954 11.7027Z"/></svg>'
         deleteImage.classList.add("deleteImage");
@@ -98,11 +104,19 @@
         const checkbox = document.createElement("img");
         checkbox.setAttribute("src", "static/checkboxTask.svg");
         checkbox.addEventListener("click", onCompleteTask);
-        let span = document.createElement("span");
-        span.innerHTML = item.title;
-        span.classList.add('spanTask');
+        checkbox.classList.add("checkboxImg");
+        let taskDiv = document.createElement("div");
+        taskDiv.classList.add("taskDiv");
+        let p = document.createElement("p");
+        p.innerHTML = item.title;
+        p.classList.add('spanTask');
+        let tag = document.createElement("div");
+        tag.classList.add("tag");
+        tag.classList.add(TAGS_CLASSES[item.tag]);
+        tag.innerHTML = item.tag;
+        taskDiv.append(p, tag);
 
-        li.append(checkbox, span, deleteButton);
+        li.append(checkbox, taskDiv, deleteButton);
         return li;
     }
 
@@ -122,12 +136,24 @@
     
     function DoneListElement({doneItem}) {
         let li = document.createElement("li");
+        li.classList.add("taskElement");
+
         const checkboxSVG = document.createElement("img");
         checkboxSVG.setAttribute("src", "static/checkboxDone.svg");
-        let span = document.createElement("span");
-        span.innerHTML = doneItem.title;
-        span.classList.add("spanDone");
-        li.append(checkboxSVG, span);
+        checkboxSVG.classList.add("checkboxImg");
+
+        let taskDiv = document.createElement("div");
+        taskDiv.classList.add("taskDiv");
+        let p = document.createElement("p");
+        p.innerHTML = doneItem.title;
+        p.classList.add('spanDone');
+        let tag = document.createElement("div");
+        tag.classList.add("tag");
+        tag.classList.add("doneTag");
+        tag.innerHTML = doneItem.tag;
+        taskDiv.append(p, tag);
+
+        li.append(checkboxSVG, taskDiv);
         return li;
     }
 
