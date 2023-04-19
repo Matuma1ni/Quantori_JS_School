@@ -15,7 +15,7 @@
             const response = await fetch('http://localhost:3004/tasks');
             return response.json();
         },
-        addTodo: async function(title) {
+        addTodo: async function(title, tag) {
             const requestOptions = {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -187,6 +187,33 @@
         return textInput;
     }
 
+    function Form() {
+        const form = document.createElement("form");
+        form.classList.add("form");
+        const tags = ["health", "work", "home", "other"];
+
+        for (let tag of tags) {
+            const input = document.createElement("INPUT");
+            input.type = "radio"; 
+            input.setAttribute("value", tag);
+            input.setAttribute("name", "tag");
+            input.setAttribute( "id", tag);
+            if (tag === "other") {
+                input.checked = true;
+            }
+
+            const label = document.createElement("label");
+            label.innerText = tag;
+            label.setAttribute("for", tag);
+            label.classList.add("tag");
+            label.classList.add(TAGS_CLASSES[tag]);
+
+            form.append(input, label)
+        }
+
+        return form; 
+    }
+
     function AddNewItemPopup({addItem, closePopup}) {
         
         function changeButtonColor() {
@@ -197,16 +224,26 @@
                 addTaskButton.disabled = true;
             }
         }
+
         function handleAddNewItem() {
             const value = textInput.value;
+            let tag = "other";
+            const radioButtons = form.getElementsByTagName("input");
+            for (let button of radioButtons) {
+                if (button.checked === true) {
+                    tag = button.id;
+                }
+            };
             textInput.value = '';
-            addItem(value);
+            addItem(value, tag);
         }
+
         function handleClosePopup() {
             textInput.value = '';
             addTaskButton.disabled = true;
             closePopup();
         }
+
         const divPopup = document.createElement("div");
         divPopup.classList.add("divPopup");
         const popupHeader = document.createElement("h3");
@@ -221,10 +258,12 @@
         addTaskButton.classList.add("popupSubmitButton");
         addTaskButton.disabled = true;
         
+        const form = Form();
+
         const closePopupButton = Button({text: "Cancel", onClick: handleClosePopup});
         closePopupButton.classList.add("popupCancelButton");
         divPopupButtons.append(closePopupButton, addTaskButton);
-        divPopup.append(popupHeader, textInput, divPopupButtons);
+        divPopup.append(popupHeader, textInput, form, divPopupButtons);
 
         const focus = () => {
             textInput.focus();
@@ -246,7 +285,6 @@
         }                                                                          
         const coordinateString = `${coordinates[0]},${coordinates[1]}`
         const query = `?key=${API_KEY}&q=${coordinateString}&aqi=no`;
-        console.log(query);
 
         const getWeather = async() => {
             const response = await fetch(URL + query);
@@ -289,8 +327,8 @@
             popupInputFocus();
         }
 
-        async function addItem(text) {
-            await apiClient.addTodo(text);
+        async function addItem(text, tag) {
+            await apiClient.addTodo(text, tag);
             const newItems = await apiClient.getTodos();
             setItems(newItems);
             closePopup();

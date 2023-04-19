@@ -166,6 +166,9 @@ input::placeholder {
     margin-right: 0px;
     align-self:center;
 }
+.form {
+    margin-top: 29px;
+}
 .divPopupButtons {
     display: flex;
     justify-content: space-around;
@@ -249,3 +252,23 @@ input::placeholder {
     color: #838383;
     background: #F5F5F5;
 }
+input[type="radio"]{
+    visibility: hidden;
+    height: 0;
+    width: 0;
+  }
+input[type="radio"]:checked + label.homeTag{
+    border: 1px solid #639462;
+}
+input[type="radio"]:checked + label.healthTag{
+    border: 1px solid #0053CF;
+}
+input[type="radio"]:checked + label.workTag{
+    border: 1px solid #9747FF;
+}
+input[type="radio"]:checked + label.otherTag{
+    border: 1px solid #EA8C00;
+}
+/* input[type="radio"]:checked + label{
+    border: 1px solid #EA8C00;
+} */
