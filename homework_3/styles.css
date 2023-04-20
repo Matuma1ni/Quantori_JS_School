@@ -37,6 +37,7 @@ body {
     flex-grow: 1;
 }
 .dashboard {
+    display: fixed;
     min-width: 220px;
     height: 1024px;
     background: #FFFFFF;
@@ -144,7 +145,6 @@ header {
 .main-screen__profile_icon {
     position: relative;
     display: inline-block;
-    float: right;
 }
 @media (min-width: 769px) {
     .main-screen__search-bar_mobile {
@@ -310,7 +310,6 @@ header {
 }
 .main-screen__header-three-dots {
     padding: 0px 20px;
-    display: inline-block;
     float: right;
     color: #9D9FA2;
 }
@@ -342,8 +341,6 @@ header {
     display:flex;
     flex-direction: row;
     justify-content: space-between;
-}
-.main-screen__graph-y-label {
 }
 .main-screen__performance-footer{
     text-align: center;
