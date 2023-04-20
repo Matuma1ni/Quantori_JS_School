@@ -48,7 +48,6 @@
      */
     function List({items, searchString, onDeleteTask, onCompleteTask}) {
         const ul = document.createElement("ul");
-        const listItems = [];
         for (let i=0; i<items.length; i++) {
             if (searchString) {
                 if (items[i].includes(searchString)) {
@@ -89,13 +88,13 @@
 
     function DoneList({doneItems, searchString}) {
         const ul = document.createElement("ul");
-        for (let i=0; i<doneItems.length; i++) {
+        for (let doneItem of doneItems) {
             if (searchString) {
                 if (doneItems[i].includes(searchString)) {
-                    ul.append(DoneListElement({doneItem: doneItems[i]}));
+                    ul.append(DoneListElement({doneItem}));
                 };
             } else {
-                ul.append(DoneListElement({doneItem: doneItems[i]}));
+                ul.append(DoneListElement({doneItem}));
             }
         }
         return ul;
@@ -256,10 +255,6 @@
             localStorage.setItem('items', JSON.stringify(items));
             setDoneItems(doneItems);
             setItems(items);
-        }
-
-        function changeSearchString() {
-            setSearchString(textInput.value);
         }
 
         const div = document.createElement("div");
