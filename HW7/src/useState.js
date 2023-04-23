@@ -1,9 +1,5 @@
-/**
- * Global application state
- * @template T
- * @param {T} initialValue
- * @returns {[T, function(T): void]}
- */
+let state = undefined;
+
 export function useState(initialValue) {
     state = state || initialValue;
     function setValue(newValue) {

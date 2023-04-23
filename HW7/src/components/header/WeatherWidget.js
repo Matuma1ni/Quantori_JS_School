@@ -1,10 +1,10 @@
 import './WeatherWidget.css';
-import { getWeather } from '../clients/weatherClient';
+import { weatherClient } from '../../clients/weatherClient';
 
 export async function WeatherWidget() {
     const divWidget = document.createElement("div");
     divWidget.classList.add("divWidget");
-    const weather = await getWeather();
+    const weather = await weatherClient.getWeather();
     const weatherSpan = document.createElement("span");
     weatherSpan.innerHTML = `${weather[0]}°`;
     weatherSpan.classList.add("weather");

@@ -1,4 +1,10 @@
-import './TagForm.js';
+import './TagForm.css';
+const TAGS_CLASSES = {
+    "health": "healthTag",
+    "home": "homeTag",
+    "work": "workTag",
+    "other": "otherTag",
+};
 
 export function TagForm() {
     const form = document.createElement("form");

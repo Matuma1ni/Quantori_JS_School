@@ -1,4 +1,13 @@
-import './ListElement.css'
+import './ListElement.css';
+import { Button } from '../Button.js';
+import checkboxTask from "../../static/checkboxTask.svg";
+
+const TAGS_CLASSES = {
+    "health": "healthTag",
+    "home": "homeTag",
+    "work": "workTag",
+    "other": "otherTag",
+};
 
 export function ListElement({item, onDeleteTask, onCompleteTask}) {
     let li = document.createElement("li");
@@ -11,7 +20,7 @@ export function ListElement({item, onDeleteTask, onCompleteTask}) {
     deleteButton.classList.add("deleteButton");
 
     const checkbox = document.createElement("img");
-    checkbox.setAttribute("src", "../static/checkboxTask.svg");
+    checkbox.setAttribute("src", checkboxTask);
     checkbox.addEventListener("click", onCompleteTask);
     checkbox.classList.add("checkboxImg");
     let taskDiv = document.createElement("div");

@@ -13,6 +13,10 @@ module.exports = {
                     "css-loader",
                 ],
             },
+            {
+                test: /\.(png|svg|jpg|jpeg|gif)$/i,
+                type: 'asset/resource',
+            },
         ],
     },
     devServer: {
@@ -26,5 +30,8 @@ module.exports = {
             inject: "body",
 
         })
-    ]
+    ],
+    experiments: {
+        topLevelAwait: true
+      }
 };

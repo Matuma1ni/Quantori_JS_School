@@ -1,3 +1,5 @@
+let searchString = undefined;
+
 export function useSearchString(initialValue) {
     searchString = searchString || initialValue;
 

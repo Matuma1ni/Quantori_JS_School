@@ -1,7 +1,9 @@
 import { ListElement } from './ListElement.js' 
+import './List.css'
 
 export function List({items, searchString, onDeleteTask, onCompleteTask}) {
     const ul = document.createElement("ul");
+    ul.classList.add("appList")
     for (let item of items) {
         if (searchString) {
             if (item.title.includes(searchString)) {

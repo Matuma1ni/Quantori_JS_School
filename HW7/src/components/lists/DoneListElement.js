@@ -1,11 +1,12 @@
 import './DoneListElement.css'
+import checkboxDone from "../../static/checkboxDone.svg"
 
 export function DoneListElement({doneItem}) {
     let li = document.createElement("li");
     li.classList.add("taskElement");
 
     const checkboxSVG = document.createElement("img");
-    checkboxSVG.setAttribute("src", "static/checkboxDone.svg");
+    checkboxSVG.setAttribute("src", checkboxDone);
     checkboxSVG.classList.add("checkboxImg");
 
     let taskDiv = document.createElement("div");

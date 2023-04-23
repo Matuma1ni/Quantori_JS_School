@@ -1,5 +1,7 @@
-import { TagForm } from './TagForm.js'
-import { TextInput } from './TextInput.js'
+import { TagForm } from './TagForm.js';
+import { TextInput } from './TextInput.js';
+import { Button } from '../Button.js'
+import './AddNewItemPopup.css';
 
 export function AddNewItemPopup({addItem, closePopup}) {
         
