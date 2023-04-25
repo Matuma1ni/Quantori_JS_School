@@ -1,11 +1,12 @@
-import { useState } from '../../renders.js';
-import { useSearchString } from '../../renders.js';
-import { apiClient } from '../../clients/apiClient.js';
-import { SearchInput } from './SearchInput.js';
-import { Button } from '../Button.js'
-import { WeatherWidget } from './WeatherWidget.js';
-import { AddNewItemPopup } from './AddNewItemPopup.js';
+import { useState } from '../../renders';
+import { useSearchString } from '../../renders';
+import { apiClient } from '../../clients/apiClient';
+import { SearchInput } from './SearchInput';
+import { Button } from '../Button'
+import { WeatherWidget } from './WeatherWidget';
+import { AddNewItemPopup } from './AddNewItemPopup';
 import './Header.css';
+import { Tag } from '../../models/Tag';
 
 export async function AppHeader() {
 
@@ -21,7 +22,7 @@ export async function AppHeader() {
         popupInputFocus();
     }
 
-    async function addItem(text, tag) {
+    async function addItem(text: string, tag: Tag) {
         await apiClient.addTodo(text, tag);
         const newItems = await apiClient.getTodos();
         setItems(newItems);

@@ -1,15 +1,11 @@
 import './ListElement.css';
-import { Button } from '../Button.js';
-import checkboxTask from "../../static/checkboxTask.svg";
+import { Button } from '../Button';
+import { TAGS_CLASSES } from '../../models/Tag';
+import { Item } from '../../models/Item';
 
-const TAGS_CLASSES = {
-    "health": "healthTag",
-    "home": "homeTag",
-    "work": "workTag",
-    "other": "otherTag",
-};
+const checkboxTask = require("../../static/checkboxTask.svg") as string;
 
-export function ListElement({item, onDeleteTask, onCompleteTask}) {
+export function ListElement({item, onDeleteTask, onCompleteTask}: {item: Item, onDeleteTask: () => void, onCompleteTask: () => void,}) {
     let li = document.createElement("li");
     li.classList.add("taskElement");
     const deleteImage = document.createElement("span");

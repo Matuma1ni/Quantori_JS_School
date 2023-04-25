@@ -1,9 +1,11 @@
+import { Tag } from "../models/Tag";
+import { Item } from "../models/Item";
 export const apiClient = {
-    getTodos: async function() {
+    getTodos: async function(): Promise<Item[]> {
         const response = await fetch('http://localhost:3004/tasks');
         return response.json();
     },
-    addTodo: async function(title, tag) {
+    addTodo: async function(title: string, tag: Tag): Promise<Item> {
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -12,7 +14,7 @@ export const apiClient = {
         const response = await fetch('http://localhost:3004/tasks', requestOptions);
         return response.json();
     },
-    updateTodo: async function(id, item) {
+    updateTodo: async function(id: number, item: Item): Promise<void> {
         const requestOptions = {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
@@ -20,7 +22,7 @@ export const apiClient = {
         };
         const response = await fetch(`http://localhost:3004/tasks/${id}`, requestOptions);
     },
-    deleteTodo: async function(id) {
+    deleteTodo: async function(id: number): Promise<void> {
         const requestOptions = {
             method: 'DELETE'
         };

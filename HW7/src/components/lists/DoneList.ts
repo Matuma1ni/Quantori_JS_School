@@ -1,7 +1,9 @@
-import { DoneListElement } from './DoneListElement.js' 
+import { DoneListElement } from './DoneListElement' 
+import { Item } from '../../models/Item'
 import './DoneList.css'
 
-export function DoneList({doneItems, searchString}) {
+export function DoneList({doneItems, searchString} :
+     {doneItems: Item[], searchString: string}) {
     const ul = document.createElement("ul");
     ul.classList.add("appList")
     for (let doneItem of doneItems) {

@@ -1,7 +1,9 @@
-import './DoneListElement.css'
-import checkboxDone from "../../static/checkboxDone.svg"
+import './DoneListElement.css';
+import { Item } from '../../models/Item'
+ 
+const checkboxDone = require("../../static/checkboxTask.svg") as string;
 
-export function DoneListElement({doneItem}) {
+export function DoneListElement({doneItem}: {doneItem: Item}) {
     let li = document.createElement("li");
     li.classList.add("taskElement");
 

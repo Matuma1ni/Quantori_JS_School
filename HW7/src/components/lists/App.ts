@@ -1,8 +1,9 @@
-import { useSearchString } from '../../renders.js';
-import { useState } from '../../renders.js';
-import { apiClient } from '../../clients/apiClient.js';
-import { List } from './List.js';
-import { DoneList } from './DoneList.js';
+import { useSearchString } from '../../renders';
+import { useState } from '../../renders';
+import { apiClient } from '../../clients/apiClient';
+import { List } from './List';
+import { DoneList } from './DoneList';
+import { Item } from '../../models/Item';
 import './App.css';
 
 /**
@@ -15,13 +16,13 @@ export async function App() {
     const completedItems = items.filter(item => item.isCompleted === true);
     const [searchString, setSearchString] = useSearchString('');
 
-    async function deleteTask(id) {
+    async function deleteTask(id: number) {
         await apiClient.deleteTodo(id);
         const newItems = await apiClient.getTodos();
         setItems(newItems);
     }
 
-    async function completeTask(id) {
+    async function completeTask(id: number) {
         const item = items.filter(item => item.id === id)[0];
         item.isCompleted = true;
         await apiClient.updateTodo(id, item);

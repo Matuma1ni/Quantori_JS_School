@@ -1,9 +1,11 @@
-import { TagForm } from './TagForm.js';
-import { TextInput } from './TextInput.js';
-import { Button } from '../Button.js'
+import { TagForm } from './TagForm';
+import { TextInput } from './TextInput';
+import { Button } from '../Button';
+import { Tag } from '../../models/Tag';
 import './AddNewItemPopup.css';
 
-export function AddNewItemPopup({addItem, closePopup}) {
+export function AddNewItemPopup({addItem, closePopup}: 
+    {addItem: (text:string, tag:Tag)=> void, closePopup: ()=>void}): [HTMLElement, ()=>void] {
         
     function changeButtonColor() {
         if (textInput.value !== '') {
@@ -17,14 +19,14 @@ export function AddNewItemPopup({addItem, closePopup}) {
     function handleAddNewItem() {
         const value = textInput.value;
         let tag = "other";
-        const radioButtons = form.getElementsByTagName("input");
+        const radioButtons = Array.from(form.getElementsByTagName("input"));
         for (let button of radioButtons) {
             if (button.checked === true) {
                 tag = button.id;
             }
         };
         textInput.value = '';
-        addItem(value, tag);
+        addItem(value, tag as Tag);
     }
 
     function handleClosePopup() {

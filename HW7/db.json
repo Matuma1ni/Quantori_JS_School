@@ -2,7 +2,7 @@
   "tasks": [
     {
       "title": "Task 1",
-      "isCompleted": false,
+      "isCompleted": true,
       "id": 1,
       "tag": "other"
     },
@@ -23,6 +23,12 @@
       "tag": "home",
       "isCompleted": false,
       "id": 4
+    },
+    {
+      "title": "Task 5",
+      "tag": "other",
+      "isCompleted": false,
+      "id": 5
     }
   ]
 }

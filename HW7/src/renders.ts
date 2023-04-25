@@ -1,23 +1,23 @@
-import { App } from './components/lists/App.js';
-import { AppHeader } from './components/header/Header.js';
+import { App } from './components/lists/App';
+import { AppHeader } from './components/header/Header';
+import { Item } from './models/Item';
 
-let state = undefined;
-let searchString = undefined;
+let state: Item[] = undefined;
+let searchString: string = undefined;
 
-export function useState(initialValue) {
+export function useState(initialValue: Item[]): [Item[], (items: Item[]) => void]  {
     state = state || initialValue;
-    function setValue(newValue) {
+    function setValue(newValue: Item[]) {
         state = newValue;
-        renderApp();
-    
+        renderApp();    
     }
     return [state, setValue];
 }
 
-export function useSearchString(initialValue) {
+export function useSearchString(initialValue: string): [string, (string: string) => void] {
     searchString = searchString || initialValue;
 
-    function setValue(newValue) {
+    function setValue(newValue: string) {
         searchString = newValue;
         renderApp();
     }

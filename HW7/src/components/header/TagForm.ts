@@ -1,18 +1,13 @@
 import './TagForm.css';
-const TAGS_CLASSES = {
-    "health": "healthTag",
-    "home": "homeTag",
-    "work": "workTag",
-    "other": "otherTag",
-};
+import { Tag, TAGS_CLASSES } from '../../models/Tag';
 
 export function TagForm() {
     const form = document.createElement("form");
     form.classList.add("form");
-    const tags = ["health", "work", "home", "other"];
+    const tags: Tag[] = [Tag.Health, Tag.Work, Tag.Home, Tag.Other];
 
     for (let tag of tags) {
-        const input = document.createElement("INPUT");
+        const input: HTMLInputElement = document.createElement("input");
         input.type = "radio"; 
         input.setAttribute("value", tag);
         input.setAttribute("name", "tag");
