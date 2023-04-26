@@ -1,20 +1,18 @@
-import { useSearchString } from '../../renders';
-import { useState } from '../../renders';
+import { useSearchString, useState } from '../../renders';
 import { apiClient } from '../../clients/apiClient';
 import { List } from './List';
 import { DoneList } from './DoneList';
-import { Item } from '../../models/Item';
 import './App.css';
 
 /**
  * App container
  * @returns {HTMLDivElement} - The app container
  */   
-export async function App() {
+export async function App(): Promise<HTMLElement> {
     const [items, setItems] = useState(await apiClient.getTodos());
     const todoItems = items.filter(item => item.isCompleted === false);
     const completedItems = items.filter(item => item.isCompleted === true);
-    const [searchString, setSearchString] = useSearchString('');
+    const [searchString, _] = useSearchString('');
 
     async function deleteTask(id: number) {
         await apiClient.deleteTodo(id);

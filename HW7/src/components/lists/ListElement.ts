@@ -5,7 +5,8 @@ import { Item } from '../../models/Item';
 
 const checkboxTask = require("../../static/checkboxTask.svg") as string;
 
-export function ListElement({item, onDeleteTask, onCompleteTask}: {item: Item, onDeleteTask: () => void, onCompleteTask: () => void,}) {
+export function ListElement({item, onDeleteTask, onCompleteTask}: 
+    {item: Item, onDeleteTask: () => void, onCompleteTask: () => void,}): HTMLElement {
     let li = document.createElement("li");
     li.classList.add("taskElement");
     const deleteImage = document.createElement("span");

@@ -4,9 +4,9 @@ import { Button } from '../Button';
 import { Tag } from '../../models/Tag';
 import './AddNewItemPopup.css';
 
-export function AddNewItemPopup({addItem, closePopup}: 
-    {addItem: (text:string, tag:Tag)=> void, closePopup: ()=>void}): [HTMLElement, ()=>void] {
-        
+export function AddNewItemPopup({ addItem, closePopup }:
+    { addItem: (text: string, tag: Tag) => void, closePopup: () => void }): [HTMLElement, () => void] {
+
     function changeButtonColor() {
         if (textInput.value !== '') {
             addTaskButton.disabled = false;
@@ -42,16 +42,16 @@ export function AddNewItemPopup({addItem, closePopup}:
     const divPopupButtons = document.createElement("div");
     divPopupButtons.classList.add("divPopupButtons");
 
-    const textInput = TextInput({placeholder: "New Task", onInput: changeButtonColor});
+    const textInput = TextInput({ placeholder: "New Task", onInput: changeButtonColor });
     textInput.classList.add("textInput");
 
-    const addTaskButton = Button({text: "Add", onClick: handleAddNewItem});
+    const addTaskButton = Button({ text: "Add", onClick: handleAddNewItem });
     addTaskButton.classList.add("popupSubmitButton");
     addTaskButton.disabled = true;
-    
+
     const form = TagForm();
 
-    const closePopupButton = Button({text: "Cancel", onClick: handleClosePopup});
+    const closePopupButton = Button({ text: "Cancel", onClick: handleClosePopup });
     closePopupButton.classList.add("popupCancelButton");
     divPopupButtons.append(closePopupButton, addTaskButton);
     divPopup.append(popupHeader, textInput, form, divPopupButtons);

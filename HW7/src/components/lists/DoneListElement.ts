@@ -3,7 +3,7 @@ import { Item } from '../../models/Item'
  
 const checkboxDone = require("../../static/checkboxTask.svg") as string;
 
-export function DoneListElement({doneItem}: {doneItem: Item}) {
+export function DoneListElement({doneItem}: {doneItem: Item}): HTMLElement {
     let li = document.createElement("li");
     li.classList.add("taskElement");
 

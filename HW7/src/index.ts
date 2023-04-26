@@ -1,8 +1,7 @@
-import { renderHeader } from './renders';
-import { renderApp } from './renders';
+import { renderHeader, renderApp } from './renders';
 import './main.css';
 
-(function (): void { 
+(function () { 
     // initial render
     renderHeader();
     renderApp();
