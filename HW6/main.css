@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Nunito:wght@500;600;700&display=swap');
+
 body, html {
     margin: 0;
     padding: 0;
@@ -8,6 +10,7 @@ h1 {
     font-weight: 700;
     font-size: 32px;
     line-height: 36px;
+    display: inline-block;
 }
 h3 {
     font-weight: 700;
@@ -163,6 +166,11 @@ input::placeholder {
     margin-right: 0px;
     align-self:center;
 }
+.form {
+    margin-top: 29px;
+    width: 60%;
+    margin-right: 130px;
+}
 .divPopupButtons {
     display: flex;
     justify-content: space-around;
@@ -172,3 +180,97 @@ input::placeholder {
     margin: 150px;
     margin-bottom: 22px;
 }
+.divWidget {
+    width: 332px;
+    height: 65px;
+    background: #FFFFFF;
+    border: 1px solid #D2D2D2;
+    display: inline-block;
+    margin-left: 460px;
+    margin-top: 30px;
+    border-radius: 24px;
+}
+.weather {
+    float: left;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 36px;
+    margin-top: 15px;
+
+}
+.city {
+    float: right;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 36px;
+    color: #838383;
+    margin-right: 15px;
+    margin-top: 15px;
+}
+.weatherIcon {
+    float: left;
+}
+.taskElement {
+    display: flex;
+}
+.checkboxImg {
+    margin-top: 18px;
+}
+.taskDiv {
+    display: inline-block;
+    flex-grow: 1;
+}
+.tag {
+    font-family: 'Inter';
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    margin-left: 20px;  
+    display: inline-block;
+}
+.healthTag {
+    background: rgba(60, 134, 244, 0.31);
+    color: #0053CF;
+}
+.homeTag {
+    background: #E2F7E2;
+    color: #639462;
+
+}
+.workTag {
+    background: #E8D7FF;
+    color: #9747FF;
+}
+.otherTag {
+    background: #FFECC7;
+    color: #EA8C00;
+}
+.doneTag {
+    color: #838383;
+    background: #F5F5F5;
+}
+input[type="radio"]{
+    visibility: hidden;
+    height: 0;
+    width: 0;
+  }
+input[type="radio"]:checked + label.homeTag{
+    border: 1px solid #639462;
+}
+input[type="radio"]:checked + label.healthTag{
+    border: 1px solid #0053CF;
+}
+input[type="radio"]:checked + label.workTag{
+    border: 1px solid #9747FF;
+}
+input[type="radio"]:checked + label.otherTag{
+    border: 1px solid #EA8C00;
+}
+/* input[type="radio"]:checked + label{
+    border: 1px solid #EA8C00;
+} */
