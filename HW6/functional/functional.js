@@ -273,16 +273,20 @@
     }
 
     async function WeatherWidget() {
-        let coordinates = [41.716667, 44.783333];
+        let coordinates = [];
         function getCoordinates() {
             return new Promise(function(resolve, reject) {
               navigator.geolocation.getCurrentPosition(resolve, reject);
             });
         }       
         if ("geolocation" in navigator) {
-            let position = await getCoordinates();
-            coordinates = [position.coords.latitude, position.coords.longitude];
-        }                                                                          
+            try {
+                let position = await getCoordinates();
+                coordinates = [position.coords.latitude, position.coords.longitude];
+            } catch (error) {
+                coordinates = [41.716667, 44.783333]
+            }
+        }                                                                         
         const coordinateString = `${coordinates[0]},${coordinates[1]}`
         const query = `?key=${API_KEY}&q=${coordinateString}&aqi=no`;
 
