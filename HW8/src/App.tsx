@@ -31,6 +31,7 @@ function App() {
   return (
     <div>
       <Header items={items} searchString={searchString} onAddItem={handleAddItem} onSearch={handleSearch}/>
+      <Lists />
     </div>
   );
 }
