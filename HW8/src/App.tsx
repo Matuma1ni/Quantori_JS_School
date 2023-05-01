@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { Item } from './models/Item';
 import { apiClient } from './clients/apiClient';
@@ -31,7 +30,7 @@ function App() {
 
   return (
     <div>
-      <Header items={items} onAddItem={handleAddItem} onSearch={handleSearch}/>
+      <Header items={items} searchString={searchString} onAddItem={handleAddItem} onSearch={handleSearch}/>
     </div>
   );
 }
