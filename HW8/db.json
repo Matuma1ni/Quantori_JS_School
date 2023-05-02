@@ -9,7 +9,7 @@
     {
       "id": 2,
       "title": "Task 2",
-      "isCompleted": false,
+      "isCompleted": true,
       "tag": "work"
     },
     {
@@ -17,12 +17,6 @@
       "title": "Task 3",
       "isCompleted": true,
       "tag": "health"
-    },
-    {
-      "title": "Task 4",
-      "tag": "home",
-      "isCompleted": false,
-      "id": 4
     },
     {
       "title": "Task 5",

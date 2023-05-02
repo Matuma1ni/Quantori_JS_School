@@ -1,8 +1,7 @@
 import { FC } from "react";
 import "./DoneListElement.css";
 import { Item } from "../../models/Item";
-
-const checkboxDone = require("../../static/checkboxTask.svg") as string;
+import { ReactComponent as CheckboxDone} from "../../static/checkboxDone.svg";
 
 interface Props {
     doneItem: Item,
@@ -11,7 +10,7 @@ interface Props {
 export const DoneListElement: FC<Props> = ({doneItem}) => {
     return (
         <li className="taskElement">
-            <img src={checkboxDone} className="checkboxImg"></img>
+            <CheckboxDone className="checkboxImg" />
             <div className="taskDiv">
                 <p className="spanDone">{doneItem.title}</p>
                 <div className="tag doneTag">{doneItem.tag}</div>

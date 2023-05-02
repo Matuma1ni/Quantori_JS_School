@@ -16,6 +16,7 @@ export const AddNewItemPopup: FC<Props> = ({onAddItem, onClose}) => {
 
     function handleAddItem() {
         void onAddItem(task, tag);
+        onClose();
     }
     return (
         <div className="divPopup">

@@ -4,11 +4,10 @@ import { Item } from "../../models/Item";
 import { DoneListElement } from "./DoneListElement";
 
 interface Props { 
-    items: Item[], 
-    searchString: string, 
+    items: Item[],  
 }
 
-export const DoneList: FC<Props> = ({items, searchString}) => {
+export const DoneList: FC<Props> = ({items}) => {
     return (
         <ul className="appList">
             {items.map(doneItem => <DoneListElement doneItem={doneItem}/>)}

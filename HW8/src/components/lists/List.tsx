@@ -5,12 +5,11 @@ import { ListElement } from "./ListElement";
 
 interface Props { 
     items: Item[], 
-    searchString: string, 
-    onDeleteTask: (id: number) => void, 
-    onCompleteTask: (id: number) => void
+    onDeleteTask: (item: Item) => void, 
+    onCompleteTask: (item: Item) => void
 }
 
-export const List: FC<Props> = ({items, searchString, onDeleteTask, onCompleteTask}) => {
+export const List: FC<Props> = ({items, onDeleteTask, onCompleteTask}) => {
     return (
         <ul className="appList">
             {items.map(item => <ListElement item={item} onCompleteTask={onCompleteTask} onDeleteTask={onDeleteTask} />)}
