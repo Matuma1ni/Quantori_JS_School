@@ -12,7 +12,7 @@ interface Props {
 export const List: FC<Props> = ({items, onDeleteTask, onCompleteTask}) => {
     return (
         <ul className="appList">
-            {items.map(item => <ListElement item={item} onCompleteTask={onCompleteTask} onDeleteTask={onDeleteTask} />)}
+            {items.map(item => <ListElement key={item.id} item={item} onCompleteTask={onCompleteTask} onDeleteTask={onDeleteTask} />)}
         </ul>
     )
 }

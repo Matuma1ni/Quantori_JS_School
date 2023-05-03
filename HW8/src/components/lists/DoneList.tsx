@@ -10,7 +10,7 @@ interface Props {
 export const DoneList: FC<Props> = ({items}) => {
     return (
         <ul className="appList">
-            {items.map(doneItem => <DoneListElement doneItem={doneItem}/>)}
+            {items.map(doneItem => <DoneListElement key={doneItem.id} doneItem={doneItem}/>)}
         </ul>
     )
 }

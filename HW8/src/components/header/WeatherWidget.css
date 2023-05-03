@@ -30,3 +30,9 @@
 .weatherIcon {
     float: left;
 }
+.defaultWeatherIcon {
+    float: left;
+    height: 65px;
+    width: 45px;
+    margin: 0px 15px;
+}

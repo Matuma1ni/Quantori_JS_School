@@ -3,13 +3,13 @@
     background: #FFFFFF;
     float: right;
 }
-.deleteImage svg{
+.deleteImage {
     fill: #838383;
 }
-.deleteImage svg:hover {
+.deleteImage:hover {
     fill: rgba(60, 134, 244, 0.6);
 }
-.deleteImage svg:active {
+.deleteImage:active {
     fill: #0053CF;
 }
 .taskElement {

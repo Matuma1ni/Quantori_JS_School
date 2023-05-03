@@ -1,7 +1,7 @@
 import { FC } from "react";
 import "./DoneListElement.css";
 import { Item } from "../../models/Item";
-import { ReactComponent as CheckboxDone} from "../../static/checkboxDone.svg";
+import { ReactComponent as CheckboxDone} from "./assets/checkboxDone.svg";
 
 interface Props {
     doneItem: Item,

@@ -2,24 +2,21 @@ import "./WeatherWidget.css";
 import { weatherClient } from '../../clients/weatherClient';
 import { FC, useEffect, useState } from "react";
 import { Weather } from "../../models/Weather";
-import "./defaultWeatherIcon.svg";
-
-const defaultWeatherIcon = require("./defaultWeatherIcon.svg") as string;
-
+import {ReactComponent as DefaultIcon} from "./assets/defaultWeatherIcon.svg";
 
 export const WeatherWidget: FC = () => {
-    const [weather, setWeather] = useState<Weather>({ temperature: "Loading", icon: defaultWeatherIcon, location: "Tbilisi" });
+    const [weather, setWeather] = useState<Weather>({ temperature: "Loading", icon: null, location: "Tbilisi" });
     useEffect(() => {
         const fetchWeather = async () => {
             const weatherData = await weatherClient.getWeather();
             setWeather(weatherData);
         }
-        fetchWeather();   
+        void fetchWeather();   
     }, []);
     return (
         <div className="divWidget">
-            <img src={weather.icon} className="weatherIcon" />
-            <span className="weather">{weather.temperature}</span>
+            {weather.icon ? <img src={weather.icon} className="weatherIcon" />: <DefaultIcon className="defaultWeatherIcon"/>}
+            <span className="weather">{weather.temperature}°</span>
             <span className="city">{weather.location}</span>
         </div>
     );

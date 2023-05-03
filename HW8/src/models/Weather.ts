@@ -1,5 +1,5 @@
 export interface Weather {
     temperature: string,
-    icon: string;
+    icon: string | null;
     location: string;
 }
