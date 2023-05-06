@@ -1,0 +1,40 @@
+{
+  "tasks": [
+    {
+      "title": "Task 1",
+      "isCompleted": true,
+      "id": 1,
+      "tag": "other"
+    },
+    {
+      "id": 2,
+      "title": "Task 2",
+      "isCompleted": true,
+      "tag": "work"
+    },
+    {
+      "id": 3,
+      "title": "Task 3",
+      "isCompleted": true,
+      "tag": "health"
+    },
+    {
+      "title": "Task 5",
+      "tag": "other",
+      "isCompleted": false,
+      "id": 5
+    },
+    {
+      "title": "Task 8",
+      "tag": "home",
+      "isCompleted": false,
+      "id": 6
+    },
+    {
+      "title": "Task 10",
+      "tag": "health",
+      "isCompleted": true,
+      "id": 7
+    }
+  ]
+}
