@@ -11,3 +11,5 @@ export const TAGS_CLASSES = {
     [Tag.Work]: "workTag",
     [Tag.Other]: "otherTag",
 };
+
+export const tags: Tag[] = [Tag.Health, Tag.Work, Tag.Home, Tag.Other];

@@ -1,6 +1,7 @@
 import { FC, useRef } from 'react';
 import './AddNewItemPopup.css';
-import { TAGS_CLASSES, Tag } from '../../models/Tag';
+import '../tags.css';
+import { TAGS_CLASSES, Tag, tags } from '../../models/Tag';
 import { useAppDispatch } from '../../app/hooks';
 import { addToDo } from '../../features/todo/todoSlice';
 
@@ -8,8 +9,6 @@ import { addToDo } from '../../features/todo/todoSlice';
 interface Props {
     onClose: () => void,
 }
-
-const tags: Tag[] = [Tag.Health, Tag.Work, Tag.Home, Tag.Other];
 
 export const AddNewItemPopup: FC<Props> = ({ onClose }) => {
     const dispatch = useAppDispatch();

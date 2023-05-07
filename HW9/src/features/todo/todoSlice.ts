@@ -6,10 +6,9 @@ import { Tag } from "../../models/Tag";
 
 export interface ToDoState {
     toDos: Item[],
-    searchString: string,
 }
 
-const initialState: ToDoState = { toDos: [], searchString: "" };
+const initialState: ToDoState = { toDos: [] };
 
 export const getToDos = createAsyncThunk(
     "ToDos/getToDos",
@@ -48,11 +47,7 @@ export const updateToDo = createAsyncThunk(
 export const slice = createSlice({
     name: "ToDos",
     initialState,
-    reducers: {
-        search: (state, action: PayloadAction<string>) => {
-            state.searchString = action.payload;
-        },
-    },
+    reducers: {},
     extraReducers: (builder) => {
         builder
             .addCase(getToDos.fulfilled, (state, action) => {
@@ -71,7 +66,5 @@ export const slice = createSlice({
     },
 });
 
-export const { search } = slice.actions;
 export const selectToDos = (state: RootState) => state.toDos.toDos;
-export const selectSearchString = (state: RootState) => state.toDos.searchString;
 export default slice.reducer;

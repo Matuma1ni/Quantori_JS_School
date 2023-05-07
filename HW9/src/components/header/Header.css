@@ -48,3 +48,14 @@
     background-color: rgba(0, 0, 0, 0.5);
     position: absolute;
 }
+.tagFilterForm {
+    margin-top: 15px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+    margin-left: 20px;
+    color: #1D1D1D;
+}
+.tagList {
+    display: inline-block;
+}

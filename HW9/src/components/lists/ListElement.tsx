@@ -1,5 +1,6 @@
 import { FC } from "react";
 import "./ListElement.css";
+import "../tags.css";
 import { Item } from "../../models/Item";
 import { TAGS_CLASSES } from "../../models/Tag";
 import {ReactComponent as CheckboxTask} from "./assets/checkboxTask.svg";
