@@ -2,10 +2,11 @@ import { FC, useState } from "react";
 import { WeatherWidget } from "./WeatherWidget";
 import "./Header.css";
 import '../tags.css';
-import { AddNewItemPopup } from "./AddNewItemPopup";
+import { ItemPopup } from "../ItemPopup";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { TAGS_CLASSES, Tag, tags } from "../../models/Tag";
 import { useSearchParams } from "react-router-dom";
+import { addToDo } from "../../features/todo/todoSlice";
 
 export const Header: FC = () => {
     const [popupVisible, setPopupVisible] = useState<boolean>(false);
@@ -67,7 +68,10 @@ export const Header: FC = () => {
                     <label className="tag noTag" htmlFor="noTag">no tag</label>
                 </form>
             </div>
-            {popupVisible && <div className="popupOverlay"><AddNewItemPopup onClose={() => setPopupVisible(false)} /></div>}
+            {popupVisible && <div className="popupOverlay">
+                <ItemPopup headerTitle="Add New Task" buttonTitle="Add" onClose={() => setPopupVisible(false)} onSubmit={(title, tag) =>
+            dispatch(addToDo({title: title, tag: tag}))} />
+            </div>}
         </div>
     );
 };

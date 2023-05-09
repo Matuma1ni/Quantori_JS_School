@@ -1,8 +1,18 @@
-.deleteButton {
+.iconButton {
     border: none;
     background: #FFFFFF;
     float: right;
 }
+.editImage {
+    stroke:  #838383;
+}
+.editImage:hover {
+    stroke:  rgba(60, 134, 244, 0.6) ;
+}
+.editImage:active {
+    stroke:  #0053CF;
+}
+
 .deleteImage {
     fill: #838383;
 }
@@ -25,7 +35,7 @@
     color: #1D1D1D;
 }
 .checkboxImg {
-    margin-top: 18px;
+    margin-top: 40px;
 }
 .taskDiv {
     display: inline-block;
