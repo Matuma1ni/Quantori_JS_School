@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Nunito:wght@500;600;700&display=swap');
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito','Open Sans', sans-serif;
+}
+/* h1 {
+    color: #1D1D1D;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 36px;
+    display: inline-block;
+}
+h3 {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 33px;
+}
+ul {
+    list-style-type: none;
+    padding-left: 12px;
+}
+li {
+    padding: 8px 12px;
+    gap: 20px;
+}
+input::placeholder {
+    color: #838383;
+}
+.mainDiv {
+    margin-top: 44px;
+    margin-left: 164px;
+}
+.divHeader {
+    margin-left: 164px;
+}
+.listsDiv {
+    width: 482px;
+    margin-top: 42px;
+}
+.searchInput {
+    color: #000000;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    box-sizing: border-box;
+    padding: 16px 21px;
+    margin-right: 40px;
+    gap: 10px;
+    width: 737px;
+    height: 52px;
+    background: #F5F5F5;
+    border: 1px solid #D2D2D2;
+    border-radius: 12px;
+    outline: none;
+}
+.spanTask {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+    margin-left: 20px;
+    color: #1D1D1D;
+}
+.spanDone {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+    margin-left: 20px;
+    color: #838383;
+}
+.deleteButton {
+    border: none;
+    background: #FFFFFF;
+    float: right;
+}
+.deleteImage svg{
+    fill: #838383;
+}
+.deleteImage svg:hover {
+    fill: rgba(60, 134, 244, 0.6);
+}
+.deleteImage svg:active {
+    fill: #0053CF;
+}
+.buttonNewTask {
+    border: none;
+    color: #0053CF;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 20px;
+    padding: 16px 32px;
+    gap: 10px;
+    background: rgba(60, 134, 244, 0.15);
+    border-radius: 12px;
+}
+.buttonNewTask:hover {
+    background: rgba(60, 134, 244, 0.35);
+    transition: 0.4s;
+}
+.popupOverlay {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+}
+.divPopup {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 24px;
+    width: 524px;
+    flex-direction: column;
+    position: absolute;
+    margin-top: 20%;
+    margin-left: 30%;
+}
+.popupCancelButton {
+    width: 227.5px;
+    height: 52px;
+    border-radius: 12px;
+    padding: 16px 32px;
+    gap: 10px;
+    background: #FFFFFF;
+    color: #0053CF;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 20px;
+    border: none;
+}
+.popupSubmitButton {
+    width: 227.5px;
+    height: 52px;
+    border-radius: 12px;
+    padding: 16px 32px;
+    gap: 10px;
+    background: #3C86F4;
+    border-radius: 12px;
+    color: #FFFFFF;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 20px;
+    border: none;
+}
+.popupSubmitButton:disabled  {
+    background: #D3D3D3;
+}
+.textInput {
+    color: #000000;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    box-sizing: border-box;
+    padding: 16px 21px;
+    margin-right: 40px;
+    gap: 10px;
+    width: 465px;
+    height: 52px;
+    background: #F5F5F5;
+    border: 1px solid #D2D2D2;
+    border-radius: 12px;
+    outline: none;
+    margin-right: 0px;
+    align-self:center;
+}
+.form {
+    margin-top: 29px;
+    width: 60%;
+    margin-right: 130px;
+}
+.divPopupButtons {
+    display: flex;
+    justify-content: space-around;
+    width: 524px;
+    background: #FFFFFF;
+    border-radius: 24px;
+    margin: 150px;
+    margin-bottom: 22px;
+}
+.divWidget {
+    width: 332px;
+    height: 65px;
+    background: #FFFFFF;
+    border: 1px solid #D2D2D2;
+    display: inline-block;
+    margin-left: 460px;
+    margin-top: 30px;
+    border-radius: 24px;
+}
+.weather {
+    float: left;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 36px;
+    margin-top: 15px;
+
+}
+.city {
+    float: right;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 36px;
+    color: #838383;
+    margin-right: 15px;
+    margin-top: 15px;
+}
+.weatherIcon {
+    float: left;
+}
+.taskElement {
+    display: flex;
+}
+.checkboxImg {
+    margin-top: 18px;
+}
+.taskDiv {
+    display: inline-block;
+    flex-grow: 1;
+}
+.tag {
+    font-family: 'Inter';
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    margin-left: 20px;  
+    display: inline-block;
+}
+.healthTag {
+    background: rgba(60, 134, 244, 0.31);
+    color: #0053CF;
+}
+.homeTag {
+    background: #E2F7E2;
+    color: #639462;
+
+}
+.workTag {
+    background: #E8D7FF;
+    color: #9747FF;
+}
+.otherTag {
+    background: #FFECC7;
+    color: #EA8C00;
+}
+.doneTag {
+    color: #838383;
+    background: #F5F5F5;
+}
+input[type="radio"]{
+    visibility: hidden;
+    height: 0;
+    width: 0;
+  }
+input[type="radio"]:checked + label.homeTag{
+    border: 1px solid #639462;
+}
+input[type="radio"]:checked + label.healthTag{
+    border: 1px solid #0053CF;
+}
+input[type="radio"]:checked + label.workTag{
+    border: 1px solid #9747FF;
+}
+input[type="radio"]:checked + label.otherTag{
+    border: 1px solid #EA8C00;
+}
+/* input[type="radio"]:checked + label{
+    border: 1px solid #EA8C00;
+} */

@@ -1,0 +1,50 @@
+.divHeader {
+    margin-left: 164px;
+}
+.appHeader {
+    color: #1D1D1D;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 36px;
+    display: inline-block;
+}
+.buttonNewTask {
+    border: none;
+    color: #0053CF;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 20px;
+    padding: 16px 32px;
+    gap: 10px;
+    background: rgba(60, 134, 244, 0.15);
+    border-radius: 12px;
+}
+.buttonNewTask:hover {
+    background: rgba(60, 134, 244, 0.35);
+    transition: 0.4s;
+}
+.searchInput {
+    color: #000000;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    box-sizing: border-box;
+    padding: 16px 21px;
+    margin-right: 40px;
+    gap: 10px;
+    width: 737px;
+    height: 52px;
+    background: #F5F5F5;
+    border: 1px solid #D2D2D2;
+    border-radius: 12px;
+    outline: none;
+}
+.popupOverlay {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+}
