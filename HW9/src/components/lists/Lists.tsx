@@ -17,7 +17,7 @@ export const Lists: FC = () => {
     const filteredItems = useMemo(() => {
         let resultItems: Item[] = items;
         if (searchString) {
-            resultItems = resultItems.filter(item => item.title.includes(searchString));
+            resultItems = resultItems.filter(item => item.title.toLowerCase().includes(searchString.toLowerCase()));
         }
         if (selectedTag) {
             resultItems = resultItems.filter(item => item.tag === selectedTag);

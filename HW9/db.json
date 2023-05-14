@@ -2,7 +2,7 @@
   "tasks": [
     {
       "title": "Task 1",
-      "isCompleted": true,
+      "isCompleted": false,
       "id": 1,
       "tag": "other"
     },
