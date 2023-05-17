@@ -1,6 +1,6 @@
 import {Weather} from "../models/Weather";
 
-const URL = "http://api.weatherapi.com/v1/current.json"
+const URL = "https://api.weatherapi.com/v1/current.json"
 const API_KEY = "f8c3dc5311f44fd8a98141433231804";
 
 

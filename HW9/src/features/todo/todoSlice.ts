@@ -1,8 +1,8 @@
 import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { Item } from "../../models/Item";
-import { apiClient } from "../../clients/apiClient";
 import { RootState } from "../../app/store";
 import { Tag } from "../../models/Tag";
+import { firebaseClient } from "../../clients/firebaseClient";
 
 export interface ToDoState {
     toDos: Item[],
@@ -13,7 +13,7 @@ const initialState: ToDoState = { toDos: [] };
 export const getToDos = createAsyncThunk(
     "ToDos/getToDos",
     async () => {
-        const response = await apiClient.getTodos();
+        const response = await firebaseClient.getTodos();
         return response;
     }
 );
@@ -21,15 +21,15 @@ export const getToDos = createAsyncThunk(
 export const addToDo = createAsyncThunk(
     "ToDos/addToDo",
     async ({ title, tag }: { title: string, tag: Tag }) => {
-        const response = await apiClient.addTodo(title, tag);
+        const response = await firebaseClient.addTodo(title, tag);
         return response;
     }
 );
 
 export const deleteToDo = createAsyncThunk(
     "ToDos/deleteToDo",
-    async (id: number) => {
-        await apiClient.deleteTodo(id);
+    async (id: number | string) => {
+        await firebaseClient.deleteTodo(id);
         return id;
     }
 
@@ -38,7 +38,7 @@ export const deleteToDo = createAsyncThunk(
 export const updateToDo = createAsyncThunk(
     "ToDos/completeToDo",
     async (item: Item) => {
-        await apiClient.updateTodo(item.id, item);
+        await firebaseClient.updateTodo(item.id, item);
         return item;
     }
 
