@@ -7,6 +7,7 @@ import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { TAGS_CLASSES, Tag, tags } from "../../models/Tag";
 import { useSearchParams } from "react-router-dom";
 import { addToDo } from "../../features/todo/todoSlice";
+import { LoginButton } from "./LoginButton";
 
 export const Header: FC = () => {
     const [popupVisible, setPopupVisible] = useState<boolean>(false);
@@ -17,8 +18,9 @@ export const Header: FC = () => {
 
     return (
         <div className="divHeader">
-            <div>
+            <div className="topHeader">
                 <h1 className="appHeader">To Do List</h1>
+                <LoginButton />
                 <WeatherWidget />
             </div>
             <input type="text"
