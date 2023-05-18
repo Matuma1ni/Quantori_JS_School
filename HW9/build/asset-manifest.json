@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.81611b8b.css",
-    "main.js": "/static/js/main.4f525f7c.js",
+    "main.css": "/static/css/main.b4d3e740.css",
+    "main.js": "/static/js/main.b5e5098b.js",
     "static/js/787.344f8fcf.chunk.js": "/static/js/787.344f8fcf.chunk.js",
     "static/media/defaultWeatherIcon.svg": "/static/media/defaultWeatherIcon.0623e12edb559190ca239d4ec6a08510.svg",
     "static/media/bucket.svg": "/static/media/bucket.367951774104fad6761811dc7073ebf4.svg",
@@ -9,12 +9,12 @@
     "static/media/edit.svg": "/static/media/edit.745daff003c7b417f6773a2c232cea62.svg",
     "static/media/checkboxDone.svg": "/static/media/checkboxDone.99b5d6f8c1193752709be7d7c3cd5d65.svg",
     "static/media/checkboxTask.svg": "/static/media/checkboxTask.2a433303401df3e83c7959d8921eca23.svg",
-    "main.81611b8b.css.map": "/static/css/main.81611b8b.css.map",
-    "main.4f525f7c.js.map": "/static/js/main.4f525f7c.js.map",
+    "main.b4d3e740.css.map": "/static/css/main.b4d3e740.css.map",
+    "main.b5e5098b.js.map": "/static/js/main.b5e5098b.js.map",
     "787.344f8fcf.chunk.js.map": "/static/js/787.344f8fcf.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.81611b8b.css",
-    "static/js/main.4f525f7c.js"
+    "static/css/main.b4d3e740.css",
+    "static/js/main.b5e5098b.js"
   ]
 }
