@@ -1,0 +1,38 @@
+.divWidget {
+    width: 332px;
+    height: 65px;
+    background: #FFFFFF;
+    border: 1px solid #D2D2D2;
+    display: inline-block;
+    margin-left: 460px;
+    margin-top: 30px;
+    border-radius: 24px;
+}
+.weather {
+    float: left;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 36px;
+    margin-top: 15px;
+
+}
+.city {
+    float: right;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 36px;
+    color: #838383;
+    margin-right: 15px;
+    margin-top: 15px;
+}
+.weatherIcon {
+    float: left;
+}
+.defaultWeatherIcon {
+    float: left;
+    height: 65px;
+    width: 45px;
+    margin: 0px 15px;
+}
