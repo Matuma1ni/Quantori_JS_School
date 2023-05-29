@@ -1,0 +1,34 @@
+.taskElement {
+    display: flex;
+    padding: 8px 12px;
+    gap: 20px;
+}
+.spanDone {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+    margin-left: 20px;
+    color: #838383;
+}
+.checkboxImg {
+    margin-top: 40px;
+}
+.taskDiv {
+    display: inline-block;
+    flex-grow: 1;
+}
+.tag {
+    font-family: 'Inter';
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    margin-left: 20px;  
+    display: inline-block;
+}
+.doneTag {
+    color: #838383;
+    background: #F5F5F5;
+}

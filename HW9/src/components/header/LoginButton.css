@@ -1,0 +1,27 @@
+.signoutElement {
+    display: inline-block;
+    white-space: nowrap;
+    margin: 0px 20px;
+}
+.userName {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+    color: #1D1D1D;
+}
+.signButton {
+    border: none;
+    color: #0053CF;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 6px 14px;
+    margin-left: 20px;
+    gap: 10px;
+    background: rgba(60, 134, 244, 0.15);
+    border-radius: 8px;
+}
+.signButton:hover {
+    background: rgba(60, 134, 244, 0.35);
+    transition: 0.4s;
+}

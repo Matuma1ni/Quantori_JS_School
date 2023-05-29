@@ -1,0 +1,43 @@
+.iconButton {
+    border: none;
+    background: #FFFFFF;
+    float: right;
+}
+.editImage {
+    stroke:  #838383;
+}
+.editImage:hover {
+    stroke:  rgba(60, 134, 244, 0.6) ;
+}
+.editImage:active {
+    stroke:  #0053CF;
+}
+
+.deleteImage {
+    fill: #838383;
+}
+.deleteImage:hover {
+    fill: rgba(60, 134, 244, 0.6);
+}
+.deleteImage:active {
+    fill: #0053CF;
+}
+.taskElement {
+    display: flex;
+    padding: 8px 12px;
+    gap: 20px;
+}
+.spanTask {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+    margin-left: 20px;
+    color: #1D1D1D;
+}
+.checkboxImg {
+    margin-top: 40px;
+}
+.taskDiv {
+    display: inline-block;
+    flex-grow: 1;
+}
